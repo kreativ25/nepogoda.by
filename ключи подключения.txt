@@ -1,2 +1,6 @@
+openweathermap.org
 API keys
 ab06caeacd9e4f38c2b216a394d0ff11
+
+
+git clone https://kreativ_25@bitbucket.org/kreativ_25/pogoda.git
