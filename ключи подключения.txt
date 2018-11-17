@@ -4,3 +4,27 @@ ab06caeacd9e4f38c2b216a394d0ff11
 
 
 git clone https://kreativ_25@bitbucket.org/kreativ_25/pogoda.git
+
+
+"id": 625144,
+"name": "Minsk",
+"country": "BY",
+"coord": {
+"lon": 27.566668,
+"lat": 53.900002
+
+
+"id": 624079,
+"name": "Orsha",
+"country": "BY",
+"coord": {
+"lon": 30.405277,
+"lat": 54.515278
+
+
+"id": 622034,
+"name": "Shklow",
+"country": "BY",
+"coord": {
+"lon": 30.291945,
+"lat": 54.210835
