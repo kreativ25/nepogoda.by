@@ -3,7 +3,11 @@ API keys
 ab06caeacd9e4f38c2b216a394d0ff11
 
 API для получения текущих данных
-http://api.openweathermap.org/data/2.5/weather?id=625144&appid=ab06caeacd9e4f38c2b216a394d0ff11&units=metric
+Текущий прогноз:  http://api.openweathermap.org/data/2.5/weather?id=625144&appid=ab06caeacd9e4f38c2b216a394d0ff11&units=metric
+Прогноз на 5 дней:  http://api.openweathermap.org/data/2.5/forecast?id=625144&appid=ab06caeacd9e4f38c2b216a394d0ff11&units=metric
+
+
+
 
 git clone https://kreativ_25@bitbucket.org/kreativ_25/pogoda.git
 
