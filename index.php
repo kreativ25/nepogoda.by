@@ -24,16 +24,19 @@
                 $nepogoda = json_decode($api, true);
                 //var_dump($nepogoda);
                 //print_arr($nepogoda);
-
-                echo $nepogoda["list"][0]["main"]["temp_min"];
+                //echo $nepogoda["list"][0]["main"]["temp_min"]; Обращение к конкретному элементу массива
 
 
                 /*foreach ($nepogoda as $print_nepogoda){
-                    echo $print_nepogoda['cod'];
-                    break;
+                    echo $nepogoda["list"][0]["main"]["temp_min"];
+
                 }*/
 
 
+
+
+
+                print_arr($nepogoda);
                 ?>
 
             </div>
