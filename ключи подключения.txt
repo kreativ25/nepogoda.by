@@ -37,6 +37,7 @@ git clone https://kreativ_25@bitbucket.org/kreativ_25/pogoda.git
 
 
 **СТРУКТУРА БД**
+----------------
 1. Дата прогноза
 2. Время прогноза
 3. Максимальная температура
@@ -49,20 +50,29 @@ git clone https://kreativ_25@bitbucket.org/kreativ_25/pogoda.git
 10. Город
 11. Дата обновления БД
 12. Время обновления БД
+13. Погодные условия - сделать привязку к картинкам
 
-
-1. [list][dt_txt]
-2. [list][dt_txt]
-3. [list][main][temp_max]
-4. [list][main][temp_min]
-5. [list][wind][speed]
-6. [list][wind][deg]
-7. [list][main][sea_level]
-8. [list][main][humidity]
-9. [city][id]
-10.[city][name]
+1. [list][dt_txt]                    # $nepogoda["list"][$i]["dt_txt"]
+2. [list][dt_txt]                    # $nepogoda["list"][$i]["dt_txt"]
+3. [list][main][temp_max]            # $nepogoda["list"][$i]["main"]["temp_max"]
+4. [list][main][temp_min]            # $nepogoda["list"][$i]["main"]["temp_min"]
+5. [list][wind][speed]               # $nepogoda["list"][$i]["wind"]["speed"]
+6. [list][wind][deg]                 # $nepogoda["list"][$i]["wind"]["deg"]
+7. [list][main][sea_level]           # $nepogoda["list"][$i]["main"]["sea_level"]
+8. [list][main][humidity]            # $nepogoda["list"][$i]["main"]["humidity"]
+9. [city][id]                        # $nepogoda["city"]["id"] -- без использования ключа, ID устанавливается один раз в начале API
+10.[city][name]                      # $nepogoda["city"]["name"]
 11. [] создавется при внесение инфо в БД
 12. [] создавется при внесение инфо в БД
+13. [list][weather][description]     # $nepogoda["list"][$i]["weather"][0]["description"]
+
+
+**ТАБЛИЦЫ**
+----------------
+1. Главная таблица - данные о погоде
+2. Таблица соотвествия Названия города с ID города
+3. Таблица соотвтествий условий погоды
+4. Таблица с картинками и ID картинки
 
 
 

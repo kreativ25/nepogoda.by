@@ -15,7 +15,6 @@
         <div class="row">
             <div class="col-md-8 mb-3">
 
-
                 <?php
                 require_once 'functions.php';
 
@@ -26,21 +25,18 @@
                 //print_arr($nepogoda);
                 //echo $nepogoda["list"][0]["main"]["temp_min"]; Обращение к конкретному элементу массива
 
-
                 //echo count($nepogoda, COUNT_RECURSIVE);
-                echo "<br><br>";
-                //echo $nepogoda["list"][1]["main"]["temp_min"];    
+                //echo $nepogoda["list"][1]["main"]["temp_min"];
 
-                
+
                 for($i = 0; $i < 50; $i++){
                     if($nepogoda["list"][$i]["dt_txt"] != ""){
-                        echo $nepogoda["list"][$i]["dt_txt"] . " = " . $nepogoda["list"][$i]["main"]["temp_min"];
+                        echo $nepogoda["list"][$i]["dt_txt"] . " = " . $nepogoda["list"][$i]["weather"][0]["description"];
                         echo "<br>"; 
                     }
                 };
-                   
 
-
+                //[list][weather][description]
 
 
 
