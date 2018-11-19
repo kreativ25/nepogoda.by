@@ -27,15 +27,25 @@
                 //echo $nepogoda["list"][0]["main"]["temp_min"]; Обращение к конкретному элементу массива
 
 
-                /*foreach ($nepogoda as $print_nepogoda){
-                    echo $nepogoda["list"][0]["main"]["temp_min"];
+                //echo count($nepogoda, COUNT_RECURSIVE);
+                echo "<br><br>";
+                //echo $nepogoda["list"][1]["main"]["temp_min"];    
 
-                }*/
+                
+                for($i = 0; $i < 50; $i++){
+                    if($nepogoda["list"][$i]["dt_txt"] != ""){
+                        echo $nepogoda["list"][$i]["dt_txt"] . " = " . $nepogoda["list"][$i]["main"]["temp_min"];
+                        echo "<br>"; 
+                    }
+                };
+                   
 
 
 
 
 
+
+                echo "<br><br><br><br>"; // не забыть удалить
                 print_arr($nepogoda);
                 ?>
 
