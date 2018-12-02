@@ -8,11 +8,12 @@
     </div>
 
     <nav class="navbar navbar-expand-md navbar-dark bg-dark mt-0">
-        <a class="navbar-brand text-warning" href="/">Nepogoda.by</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <a class="navbar-brand text-warning" href="#">Главная</a>
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
+
+        <div class="navbar-collapse collapse" id="navbarsExampleDefault" style="">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
                     <a class="nav-link" href="#">Сегодня <span class="sr-only">(current)</span></a>
@@ -27,45 +28,32 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="#">Список городов</a>
                 </li>
-            </ul>
 
-            <form class="form-inline mt-2 mt-md-0" method="post" action="/prognoz.php">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Выбрать</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        <a class="dropdown-item" href="#">Минск</a>
+                        <a class="dropdown-item" href="#">Брест</a>
+                        <a class="dropdown-item" href="#">Гомель</a>
 
-                <div class="dropdown mr-2 mb-2">
-                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Выбрать город
-                    </a>
+                        <a class="dropdown-item" href="#">Витебск</a>
+                        <a class="dropdown-item" href="#">Гродно</a>
+                        <a class="dropdown-item" href="#">Могилев</a>
 
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <input type="submit" class="dropdown-item" name="Минск" value="Минск" id="Минск">
-                        <input type="submit" class="dropdown-item" name="Брест" value="Брест" id="Брест">
-                        <input type="submit" class="dropdown-item" name="Гомель" value="Гомель" id="Гомель">
-                        <input type="submit" class="dropdown-item" name="Витебск" value="Витебск" id="Витебск">
-                        <input type="submit" class="dropdown-item" name="Гродно" value="Гродно" id="Гродно">
-                        <input type="submit" class="dropdown-item" name="Могилев" value="Могилев" id="Могилев">
-                        <input type="submit" class="dropdown-item" name="Барановичи" value="Барановичи" id="Барановичи">
-                        <input type="submit" class="dropdown-item" name="Пинск" value="Пинск" id="Пинск">
-                        <input type="submit" class="dropdown-item" name="Лида" value="Лида" id="Лида">
-                        <input type="submit" class="dropdown-item" name="Пружаны" value="Пружаны" id="Пружаны">
+                        <a class="dropdown-item" href="#">Барановичи</a>
+                        <a class="dropdown-item" href="#">Пинск</a>
+                        <a class="dropdown-item" href="#">Пружаны</a>
+
+                        <a class="dropdown-item" href="#">Лида</a>
                     </div>
-                </div>
-
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="text" placeholder="Название города" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Поиск</button>
             </form>
-
-
-
-            <?php
-                //тут определяем переменную для получения данных о выбранном городе
-            ?>
-
-
-
         </div>
     </nav>
-
-
 
 
 </div>
