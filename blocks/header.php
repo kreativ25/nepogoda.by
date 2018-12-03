@@ -73,6 +73,8 @@
             success: function (data) {
                 if (data == 'ГОТОВО'){
                     alert(555);
+                }else {
+                    alert(data);
                 }
             }
         });
