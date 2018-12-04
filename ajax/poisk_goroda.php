@@ -18,17 +18,20 @@ if ($error != ''){
     exit();
 }
 
+/*
 if ($gorod_poisk == 'Минск'){
     echo 'ГОТОВО';
 }
+*/
 
 require_once '../mysql_connect.php';
 
 //этот код пока не работает
-$sql = 'SELECT gorod id FROM gorod WHERE gorod_name_rus = ?';
+$sql = 'SELECT gorod_id FROM gorod WHERE gorod_name_rus = ?';
 $query = $pdo->prepare($sql);
 $query->execute([$gorod_poisk]);
+$gorod_id = $query->fetchColumn();
 
-echo $query;
+echo $gorod_id;
 
 ?>
