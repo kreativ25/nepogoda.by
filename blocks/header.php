@@ -8,7 +8,7 @@
     </div>
 
     <nav class="navbar navbar-expand-md navbar-dark bg-dark mt-0">
-        <a class="navbar-brand text-warning" href="#">Главная</a>
+        <a class="navbar-brand text-warning" href="/">Главная</a>
         <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -48,8 +48,8 @@
                     </div>
                 </li>
             </ul>
-            <form class="form-inline my-2 my-lg-0" method="post">
-                <input class="form-control mr-sm-2" type="text" id="gorod_poisk" placeholder="Название города" aria-label="Search">
+            <form class="form-inline my-2 my-lg-0" method="post" action="../prognoz.php">
+                <input class="form-control mr-sm-2" type="text" name="gorod_poisk" id="gorod_poisk" placeholder="Название города" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="gorod_poisk_id">Поиск</button>
             </form>
         </div>
@@ -58,30 +58,7 @@
 
 </div>
 
-<script>
-    $('#gorod_poisk_id').click(function () {
-        var gorod_poisk = $('#gorod_poisk').val();
 
-        $.ajax({
-            url:'ajax/poisk_goroda.php',
-            type: 'POST',
-            cache: false,
-            data: {
-                'gorod': gorod_poisk
-            },
-            dataType: 'html',
-            success: function (data) {
-                if (data == 'ГОТОВО'){
-                    alert(555);
-                }else {
-                    alert(data);
-                }
-            }
-        });
-
-    });
-
-</script>
 
 
 
