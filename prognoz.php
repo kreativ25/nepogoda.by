@@ -51,21 +51,38 @@
             $nepogoda_count = count($nepogoda['list']); //количество элементов в массиве API для цикла
 
 
-
             //Определяем переменные для пополнения БД
-            $data_prognoza = $nepogoda["list"][$i]["dt_txt"]; //ОБРАБОТАТЬ - получить только дату
-            $time_prognoza = $nepogoda["list"][$i]["dt_txt"]; //ОБРАБОТАТЬ - получить только время
-            $date_bd = date("Y-m-d");
-            $time_bd = date("H:i:s");
+            $data_prognoza_temp = date_create($nepogoda["list"][$i]["dt_txt"]); //временная переменная для форматирвоания даты API
+            $data_prognoza = date_format($data_prognoza_temp,'Y-m-d'); //принимает отформатированную дату API
+
+            $time_prognoza_temp = date_create($nepogoda["list"][$i]["dt_txt"]); //временная переменная для форматирвоания времени API
+            $time_prognoza = date_format( $time_prognoza_temp,'H:i:s'); //принимает отформатированное время API
+
+            $date_bd_temp = date_create(date("Y-m-d"));
+            $date_bd = date_format($date_bd_temp, 'Y-m-d'); //дата вставленных данных в БД
+
+            $time_bd_temp = date_create(date("H:i:s"));
+            $time_bd = date_format($time_bd_temp,"H:i:s"); //время вставленных данных в БД
+
             $city_id = $nepogoda["city"]["id"];
-            $temp = $nepogoda["list"][$i]["main"]["temp"];
-            $temp_max = $nepogoda["list"][$i]["main"]["temp_max"];
-            $temp_min = $nepogoda["list"][$i]["main"]["temp_min"];
-            $skorost_vetra = $nepogoda["list"][$i]["wind"]["speed"];
-            $napravleniye_vetra = $nepogoda["list"][$i]["wind"]["deg"];
-            $atmosfernoye_davleniye = $nepogoda["list"][$i]["main"]["sea_level"];
-            $vlazhnost = $nepogoda["list"][$i]["main"]["humidity"];
+            $temp = number_format($nepogoda["list"][$i]["main"]["temp"],0);
+            $temp_max = number_format($nepogoda["list"][$i]["main"]["temp_max"],0);
+            $temp_min = number_format($nepogoda["list"][$i]["main"]["temp_min"],0);
+            $skorost_vetra = number_format($nepogoda["list"][$i]["wind"]["speed"],0);
+            $napravleniye_vetra = number_format($nepogoda["list"][$i]["wind"]["deg"],0);
+            $atmosfernoye_davleniye = number_format($nepogoda["list"][$i]["main"]["sea_level"],0, '.', '');
+            $vlazhnost = number_format($nepogoda["list"][$i]["main"]["humidity"],0);
+
+            //СДЕЛАТЬ ПЕРЕБОР ЯВЛЕНИЙ И ПРИСВАИВАТЬ РУССКИЙ ВАРИАНТ
             $usloviya = $nepogoda["list"][$i]["weather"][0]["description"];
+
+
+
+            echo $skorost_vetra;
+
+            echo "<br>";
+            echo "<br>";
+            echo "<br>";
 
 
             for($i = 0; $i < $nepogoda_count; $i++){
