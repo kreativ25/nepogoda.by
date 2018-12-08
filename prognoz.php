@@ -52,20 +52,35 @@
             $nepogoda = json_decode($api, true);
             $nepogoda_count = count($nepogoda['list']); //количество элементов в массиве API для цикла
 
+            //*********************************************************
+            //для тестов
 
+
+
+
+
+            //*********************************************************
             echo "<br>";
             echo "<br>";
             echo "<br>";
 
             //---------------------------------------------------
             require_once 'mysql_connect.php';
-
             ini_set('max_execution_time', 3000); //3000 seconds = 50 minutes - меняем время макс продолжительности скрипта
-
 
             //Прописываем API_KEY и таймзону
             define("API_KEY", "ab06caeacd9e4f38c2b216a394d0ff11");
             date_default_timezone_set('Europe/Minsk');   //Устанавливаем таймзону Беларуси
+
+            $sql = 'SELECT MAX(date_bd) FROM prognoz';
+            $query = $pdo->prepare($sql);
+            $query->execute();
+            $max_data_obnovlenia_BD = $query->fetchColumn(); //возвращает максимальную дату последнего обновления БД
+
+            $sql = 'SELECT MAX(time_bd) FROM prognoz WHERE date_bd = ?';
+            $query = $pdo->prepare($sql);
+            $query->execute([$max_data_obnovlenia_BD]);
+            $max_TIME_obnovlenia_BD = $query->fetchColumn(); //возвращает максимальное ВРЕМЯ последнего обновления БД
 
             //определяем количество городов в БД
             $sql = 'SELECT COUNT(*) FROM gorod';
@@ -82,7 +97,8 @@
                 $gorod_id_bd = $gorod_id_temp[$a]; //получаем город по списку
 
                 $link = 'http://api.openweathermap.org/data/2.5/forecast?id=' . $gorod_id_bd . '&appid=' . API_KEY . '&units=metric';
-                $api = file_get_contents($link);
+                $url = trim($link);
+                $api = file_get_contents($url);
                 $nepogoda = json_decode($api, true);
                 $nepogoda_count = count($nepogoda['list']); //количество элементов в массиве API для цикла
 
@@ -174,7 +190,15 @@
                 sleep(1); //делаем задержку записи в БД и обращения к API = 1 секунде
             }
 
+            //УДАЛЯЕМ СТАРЫЕ ДАННЫЕ ИЗ БАЗЫ ДАННЫХ!!!
+            $sql = 'DELETE FROM prognoz WHERE  date_bd <= ? AND time_bd <= ?';
+            $query = $pdo->prepare($sql);
+            $query->execute([$max_data_obnovlenia_BD, $max_TIME_obnovlenia_BD]);
+
             //---------------------------------------------------
+
+
+
 
             for($i = 0; $i < $nepogoda_count; $i++){
                 if($nepogoda["list"][$i]["dt_txt"] != ""){
