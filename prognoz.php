@@ -69,20 +69,57 @@
             $temp_max = number_format($nepogoda["list"][$i]["main"]["temp_max"],0);
             $temp_min = number_format($nepogoda["list"][$i]["main"]["temp_min"],0);
             $skorost_vetra = number_format($nepogoda["list"][$i]["wind"]["speed"],0);
-            $napravleniye_vetra = number_format($nepogoda["list"][$i]["wind"]["deg"],0);
             $atmosfernoye_davleniye = number_format($nepogoda["list"][$i]["main"]["sea_level"],0, '.', '');
             $vlazhnost = number_format($nepogoda["list"][$i]["main"]["humidity"],0);
 
-            //СДЕЛАТЬ ПЕРЕБОР ЯВЛЕНИЙ И ПРИСВАИВАТЬ РУССКИЙ ВАРИАНТ
-            $usloviya = $nepogoda["list"][$i]["weather"][0]["description"];
+            $usloviya = "";
+            switch ($nepogoda["list"][$i]["weather"][0]["description"]){
+                case 'broken clouds':
+                    $usloviya = 'Облачно с прояснениями.';
+                    break;
+                case 'clear sky':
+                    $usloviya = 'Чистое небо.';
+                    break;
+                case 'few clouds':
+                    $usloviya = 'Небольшая облачность.';
+                    break;
+                case 'light rain':
+                    $usloviya = 'Небольшой дождь.';
+                    break;
+                case 'light snow':
+                    $usloviya = 'Снег.';
+                    break;
+                case 'moderate rain':
+                    $usloviya = 'Дождь.';
+                    break;
+                case 'overcast clouds':
+                    $usloviya = 'Сплошная облачность.';
+                    break;
+                case 'scattered clouds':
+                    $usloviya = 'Переменная облачность.';
+                    break;
+                case 'heavy intensity rain':
+                    $usloviya = 'Сильный дождь.';
+                    break;
+            }
 
 
-
-            echo $skorost_vetra;
+            echo $usloviya;
 
             echo "<br>";
             echo "<br>";
             echo "<br>";
+
+
+
+
+
+
+
+
+
+
+
 
 
             for($i = 0; $i < $nepogoda_count; $i++){
