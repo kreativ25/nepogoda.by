@@ -63,6 +63,7 @@
             echo "</br>";
             echo "</br>";
 
+
             //--------СОЗДАЕМ ТАБЛИЦУ С ПРОГНОЗОМ------
             require_once 'mysql_connect.php';
             $sql = 'SELECT data_prognoza, time_prognoza, temp, usloviya, skorost_vetra, vlazhnost
