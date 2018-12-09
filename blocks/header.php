@@ -48,7 +48,7 @@
                     </div>
                 </li>
             </ul>
-            <form class="form-inline my-2 my-lg-0" method="post" action="../prognoz.php">
+            <form class="form-inline my-2 my-lg-0" method="post" action="../table_hour.php">
                 <input class="form-control mr-sm-2" type="text" name="gorod_poisk" id="gorod_poisk" placeholder="Название города" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="gorod_poisk_id">Поиск</button>
             </form>

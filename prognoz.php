@@ -59,12 +59,23 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
             //*********************************************************
             echo "<br>";
             echo "<br>";
             echo "<br>";
 
-            //---------------------------------------------------
+/*            //---------------------------------------------------
             require_once 'mysql_connect.php';
             ini_set('max_execution_time', 3000); //3000 seconds = 50 minutes - меняем время макс продолжительности скрипта
 
@@ -102,6 +113,36 @@
                 $nepogoda = json_decode($api, true);
                 $nepogoda_count = count($nepogoda['list']); //количество элементов в массиве API для цикла
 
+
+/*
+                //Запускаем в цикл не подключившиеся соединения с API
+                for($i = 0; $i < 20; $i++){
+
+                    $link = 'http://api.openweathermap.org/data/2.5/forecast?id=' . $gorod_id_bd . '&appid=' . API_KEY . '&units=metric';
+                    $url = trim($link);
+                    $api = file_get_contents($url);
+                    $nepogoda = json_decode($api, true);
+
+                    if (!$nepogoda){
+
+                        //увеличиваем время задержки
+                        if ($i = 0){
+                            sleep(1);
+                        };
+
+                        if ($i != 0 and $i <= 20){
+                            $sleep = $sleep * 2;
+                            sleep($sleep);
+                        }
+                    } else {
+                        break;
+                    }
+                    //break;
+                };
+
+                $nepogoda_count = count($nepogoda['list']); //количество элементов в массиве API для цикла
+*/
+ /*               //Записываем полученные данные в БД
                 for($i = 0; $i < $nepogoda_count; $i++){
 
                     //Определяем переменные для пополнения БД
@@ -196,9 +237,7 @@
             $query->execute([$max_data_obnovlenia_BD, $max_TIME_obnovlenia_BD]);
 
             //---------------------------------------------------
-
-
-
+*/
 
             for($i = 0; $i < $nepogoda_count; $i++){
                 if($nepogoda["list"][$i]["dt_txt"] != ""){
