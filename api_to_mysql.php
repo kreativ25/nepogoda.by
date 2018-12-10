@@ -51,7 +51,7 @@
             $date_bd = date_format($date_bd_temp, 'Y-m-d'); //дата вставленных данных в БД
 
             $time_bd_temp = date_create(date("H:i:s"));
-            $time_bd = date_format($time_bd_temp,"H:i:s"); //время вставленных данных в БД
+            $time_bd = date_format($time_bd_temp,"H:i"); //время вставленных данных в БД
 
             $city_id = $nepogoda["city"]["id"];
             $temp = number_format($nepogoda["list"][$i]["main"]["temp"],0);
