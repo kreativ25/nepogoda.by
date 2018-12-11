@@ -58,11 +58,7 @@
             //*********************************************************
 
             echo "</br>";
-            echo "</br>";
-            echo "</br>";
-            echo "</br>";
-            echo "</br>";
-            echo "</br>";
+
 
 
             //--------СОЗДАЕМ ТАБЛИЦУ С ПРОГНОЗОМ------
@@ -108,17 +104,26 @@
             //вставляем строки
             for ($i = 0; $i < $gorod_id_COUNT; $i++){
 
-                //добавляем плюс к положительным цифрам
+                //добавляем плюс к положительным цифрам, убираем отрицательный ноль и тд.
                 if ($gorod_id[$i]["temp"] > 0){
-                   $gorod_id_print =  "+".$gorod_id[$i]["temp"];
-                }
+                    $gorod_id_print =  "+".$gorod_id[$i]["temp"];
+                };
+
+                if ($gorod_id[$i]["temp"] < 0){
+                    $gorod_id_print =  $gorod_id[$i]["temp"];
+                };
+
+                if ($gorod_id[$i]["temp"] == "-0"){
+                    $gorod_id_print =  0;
+                };
+
 
                 //убираем дублирующиеся записи при обновлении БД
                 $x = $i - 1;
                 if ($gorod_id[$i]["data_prognoza"] == $gorod_id[$x]["data_prognoza"] and
                     $gorod_id[$i]["time_prognoza"] == $gorod_id[$x]["time_prognoza"]){
                     continue;
-                }
+                };
 
                 //выводим название дней недели на русском
                 $den_nedeli = strftime("%w", strtotime($gorod_id[$i]["data_prognoza"]));
@@ -130,26 +135,26 @@
                 $den_nedeli_rus = "";
                 switch ($den_nedeli){
                     case 0:
-                    $den_nedeli_rus = 'Воскресенье';
-                    break;
+                        $den_nedeli_rus = 'Воскресенье';
+                        break;
                     case 1:
-                    $den_nedeli_rus = 'Понедельник';
-                    break;
+                        $den_nedeli_rus = 'Понедельник';
+                        break;
                     case 2:
-                    $den_nedeli_rus = 'Вторник';
-                    break;
+                        $den_nedeli_rus = 'Вторник';
+                        break;
                     case 3:
-                    $den_nedeli_rus = 'Среда';
-                    break;
+                        $den_nedeli_rus = 'Среда';
+                        break;
                     case 4:
-                    $den_nedeli_rus = 'Четверг';
-                    break;
+                        $den_nedeli_rus = 'Четверг';
+                        break;
                     case 5:
-                    $den_nedeli_rus = 'Пятница';
-                    break;
+                        $den_nedeli_rus = 'Пятница';
+                        break;
                     case 6:
-                    $den_nedeli_rus = 'Суббота';
-                    break;
+                        $den_nedeli_rus = 'Суббота';
+                        break;
                 };
 
                 //вытягиваем месяц на русском
@@ -225,8 +230,8 @@
                 </tr>
                 ';
             }
-                //закрытие тега создающего таблицу
-                echo '
+            //закрытие тега создающего таблицу
+            echo '
                     </tbody>
                     </table>';
 
@@ -235,12 +240,12 @@
 
 
             <?php
-                echo "</br>";
-                echo "</br>";
-                echo "</br>";
-                echo "</br>";
-                echo "</br>";
-                echo "</br>";
+            echo "</br>";
+            echo "</br>";
+            echo "</br>";
+            echo "</br>";
+            echo "</br>";
+            echo "</br>";
             ?>
 
 
