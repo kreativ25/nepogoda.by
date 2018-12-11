@@ -92,7 +92,7 @@
                 <thead class="thead-light">
                 <tr>
                     <th scope="col">Дата</th>
-                    <th scope="col">Температура</th>
+                    <th scope="col">t°C</th>
                     <th scope="col"></th>
                     <th scope="col"></th>
                     <th scope="col">Ветер, м/с</th>
@@ -208,7 +208,6 @@
                     <thead class="thead-light">
                         <tr >
                             <th scope="col">' . $den_nedeli_rus .", " . $month_day . " " . $month_rus . '</th>
-                            <th scope="col"></th>
                             <th scope="col"></th>
                             <th scope="col"></th>
                             <th scope="col"></th>
