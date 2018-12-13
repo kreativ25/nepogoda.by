@@ -95,12 +95,13 @@
             <div class="table-responsive">
                 <table class="table table-striped table-sm">
                     <thead>
-                    <tr>
-                        <th>Дата</th>
-                        <th>t°с</th>
-                        <th>Условия</th>
-                        <th>Ветер, м/с</th>
-                        <th>Влажность, %</th>
+                    <tr class="bg-dark text-white " style="height: 41px">
+                        <th class="text-center h6" >Дата</th>
+                        <th class="h6">Темп.</th>
+                        <th></th>
+                        <th class="h6">Погодные явления</th>
+                        <th class="h6">Ветер, м/с</th>
+                        <th class="h6">Влаж., %</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -210,19 +211,20 @@
                 if ($gorod_id[$i]["time_prognoza"] == '00:00:00'){
                     echo '
                     
-                    <tr class="bg-secondary text-white">
-                        <td class="bg-secondary text-white"> ' . $den_nedeli_rus .", " . $month_day . " " . $month_rus . ' </td>
+                    <tr class="bg-secondary text-white ">
+                        <td class="bg-secondary text-white" colspan="6"> ' . $den_nedeli_rus .", " . $month_day . " " . $month_rus . ' </td>
                     </tr>
                     
                     ';
                 }
                 echo '
                     <tr>
-                        <td>' . $time_hort . '</td>
-                        <td>' . $gorod_id_print . '</td>
-                        <td>' . '<img src="img/облачно_с_прояснениями.png" alt="небольшой дождь">' . " " . $gorod_id[$i]["usloviya"] . '</td>
-                        <td class="text-center">' . $gorod_id[$i]["skorost_vetra"] . '</td>
-                        <td class="text-center">' . $gorod_id[$i]["vlazhnost"] . '</td>
+                        <td class="text-center">' . $time_hort . '</td>
+                        <td class="text-center">' . $gorod_id_print . '</td>
+                        <td> <img src="img/Ясно%20(32х32)%20день.png" alt="небольшой дождь"> </td>
+                        <td>' . $gorod_id[$i]["usloviya"] . '</td>
+                        <td >' . $gorod_id[$i]["skorost_vetra"] . '</td>
+                        <td >' . $gorod_id[$i]["vlazhnost"] . '</td>
                     </tr>
                 ';
             }
