@@ -15,6 +15,14 @@
     <div class="row">
         <div class="col-md-8 mb-3">
 
+            <canvas id="myChart" width="400" height="200"></canvas>
+
+            <?php
+            echo "</br>";
+            echo "</br>";
+            echo "</br>";
+            ?>
+
             <?php require_once 'functions.php';?>
             <?php
 
@@ -52,14 +60,25 @@
             //*********************************************************
             //для тестов
 
-            echo $gorod_id;
-            echo "</br>";
+            // ------------------------------ДЕЛАЕМ ЗАПРОСЫ ДЛЯ ГРАФИКА------------------------------
+            require_once 'mysql_connect.php';
+            $sql = 'SELECT temp  
+                    FROM prognoz
+                    WHERE city_id = ? 
+                    ORDER BY data_prognoza ASC, time_prognoza ASC';
+            $query = $pdo->prepare($sql);
+            $query->execute([$gorod_id]);
+            $json__encode_temp = $query->fetchAll(PDO::FETCH_COLUMN); // возвращает массив, который состоит из всех строк
+            $json__encode_temp_chart = json_encode($json__encode_temp);
+
+
+            var_dump($json__encode_temp_chart);
 
 
 
 
 
-            //*********************************************************
+            // ------------------------------КОНЕЦ ЗАПРОСОВ ДЛЯ ГРАФИКА------------------------------
 
             echo "</br>";
 
@@ -75,14 +94,7 @@
             $query->execute([$gorod_id]);
             $gorod_id = $query->fetchAll(); // возвращает массив, который состоит из всех строк
 
-            $i = 1;
 
-            echo $gorod_id[$i]["data_prognoza"] . "</br>";
-            echo $gorod_id[$i]["time_prognoza"]. "</br>";
-            echo $gorod_id[$i]["temp"] . "</br>";
-            echo $gorod_id[$i]["usloviya"] . "</br>";
-            echo $gorod_id[$i]["skorost_vetra"] . "</br>";
-            echo $gorod_id[$i]["vlazhnost"] . "</br>";
 
             $gorod_id_COUNT = count($gorod_id); //определяем количество строк в массиве
 
@@ -242,5 +254,9 @@
 </main>
 
 <?php require 'blocks/footer.php' ?>
+
+<script src="/js/Chart.min.js"></script>
+<script src="/js/chart_for_nepogoda.js"></script>
+
 </body>
 </html>
