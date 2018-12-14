@@ -68,11 +68,11 @@
                     ORDER BY data_prognoza ASC, time_prognoza ASC';
             $query = $pdo->prepare($sql);
             $query->execute([$gorod_id]);
-            $json__encode_temp = $query->fetchAll(PDO::FETCH_COLUMN); // возвращает массив, который состоит из всех строк
+            $json__encode_temp = $query->fetchAll(PDO::FETCH_COLUMN ); // возвращает массив, который состоит из всех строк
             $json__encode_temp_chart = json_encode($json__encode_temp);
 
-
-            var_dump($json__encode_temp_chart);
+            //передаем в скрипт данные температуры погоды!
+            echo '<script>var json__encode_temp_chart = ['.implode(",",$json__encode_temp).']</script>';
 
 
 
