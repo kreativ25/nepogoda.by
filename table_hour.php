@@ -62,23 +62,46 @@
 
             // ------------------------------ДЕЛАЕМ ЗАПРОСЫ ДЛЯ ГРАФИКА------------------------------
             require_once 'mysql_connect.php';
-            $sql = 'SELECT temp  
+            $sql = 'SELECT temp 
                     FROM prognoz
                     WHERE city_id = ? 
                     ORDER BY data_prognoza ASC, time_prognoza ASC';
             $query = $pdo->prepare($sql);
             $query->execute([$gorod_id]);
             $json__encode_temp = $query->fetchAll(PDO::FETCH_COLUMN ); // возвращает массив, который состоит из всех строк
-            $json__encode_temp_chart = json_encode($json__encode_temp);
 
             //передаем в скрипт данные температуры погоды!
             echo '<script>var json__encode_temp_chart = ['.implode(",",$json__encode_temp).']</script>';
 
+            //------------------------------------------------------------------------------------------
+            //получаем данные дня прогноза и делаем массив из коротких названий ПН, ВТ....
+            $sql = 'SELECT data_prognoza 
+                    FROM prognoz
+                    WHERE city_id = ? 
+                    ORDER BY data_prognoza ASC, time_prognoza ASC';
+            $query = $pdo->prepare($sql);
+            $query->execute([$gorod_id]);
+            $json__encode_data_prognoza = $query->fetchAll(PDO::FETCH_COLUMN ); // возвращает массив, который состоит из всех строк
+            $json__encode_data_prognoza_COUNT = count($json__encode_data_prognoza); //определяем количество строк в массиве
+
+            //делаем короткие даты
+            for ($i = 0; $i < $json__encode_data_prognoza_COUNT; $i++){
 
 
 
 
-            // ------------------------------КОНЕЦ ЗАПРОСОВ ДЛЯ ГРАФИКА------------------------------
+
+
+
+
+            };
+
+
+
+
+            print_r($json__encode_data_prognoza);
+
+            // ------------------------------КОНЕЦ ЗАПРОСОВ ДЛЯ ГРАФИКА----------------------------------
 
             echo "</br>";
 
