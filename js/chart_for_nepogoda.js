@@ -6,11 +6,32 @@ var chart = new Chart(ctx, {
         labels: json__encode_data_chart,
         datasets: [{
             label: "Прогноз температуры",
-            backgroundColor: 'rgb(255, 99, 132)',
             borderColor: 'rgb(255, 99, 132)',
             data: json__encode_temp_chart,
         }]
     },
 
-    options: {}
+    options: {
+        legend: {
+            display: true,
+            labels: {
+                fontColor: 'rgb(255, 99, 132)'
+            }
+        },
+
+        scales: {
+            yAxes: [{
+                ticks:{
+                    beginAtZero: true
+                }
+            }],
+            xAxes: [{
+                ticks:{
+                    autoSkip: true,
+                    maxTickslimit: 3
+                }
+            }],
+        }
+    }
 });
+
