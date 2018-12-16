@@ -3,7 +3,7 @@ var chart = new Chart(ctx, {
     type: 'line',
 
     data: {
-        labels: ["January", "February", "March", "April", "May", "June", "July", "January", "February", "March", "April", "May", "June", "July"],
+        labels: ["Январь", "февраль", " vfhn"],
         datasets: [{
             label: "Прогноз температуры",
             backgroundColor: 'rgb(255, 99, 132)',
