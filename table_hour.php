@@ -89,6 +89,8 @@
             $date_prognoza_array = []; // массив в который будут записываться сокращенные даты
             $time_prognoza_array = []; //массив в который будет записываться краткое время
 
+            //-----------
+             $data_prognoza_array_1 = '';
 
             for ($i = 0; $i < $json__encode_data_prognoza_COUNT; $i++){
 
@@ -138,23 +140,17 @@
 
                 //добовляем в массив время прогноза вторым столбцом
                 $time_prognoza_array[] = $date_prognoza_array_temp['time_prognoza'];
+
+                $data_prognoza_array_1 = $data_prognoza_array_1 . '"' . $json__encode_data_prognoza[$i]['data_prognoza'] . '",';
             };
 
+            //убираем последнюю запятую в списке
+            $data_prognoza_array_1 = trim($data_prognoza_array_1, ",");
+
             //передаем в скрипт подписи данных для графика!
-            echo '<script>var json__encode_data_chart = ['.implode(",",$date_prognoza_array).']</script>';
-
-            echo "</br>";
-            echo "</br>";
-            echo "</br>";
-            echo "</br>";
+            echo '<script>var json__encode_data_chart = ['.$data_prognoza_array_1.']</script>';
 
 
-            print_r(implode(",",$json__encode_temp));
-
-            echo "</br>";
-            echo "</br>";
-
-            print_r(implode(",",$date_prognoza_array));
 
 
 

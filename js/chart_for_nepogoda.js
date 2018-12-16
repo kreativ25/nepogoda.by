@@ -3,7 +3,7 @@ var chart = new Chart(ctx, {
     type: 'line',
 
     data: {
-        labels: ["Январь", "февраль", " vfhn"],
+        labels: json__encode_data_chart,
         datasets: [{
             label: "Прогноз температуры",
             backgroundColor: 'rgb(255, 99, 132)',
