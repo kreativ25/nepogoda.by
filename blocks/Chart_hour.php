@@ -5,7 +5,12 @@
     require_once 'mysql_connect.php';
     $sql = 'SELECT temp
     FROM prognoz
-    WHERE city_id = ?
+    WHERE 
+    city_id = ? and (
+    time_prognoza = \'03:00:00\' or 
+    time_prognoza = \'09:00:00\' or 
+    time_prognoza = \'15:00:00\' or 
+    time_prognoza = \'21:00:00\') 
     ORDER BY data_prognoza ASC, time_prognoza ASC';
     $query = $pdo->prepare($sql);
     $query->execute([$gorod_id]);
@@ -14,12 +19,18 @@
     //передаем в скрипт данные температуры погоды!
     echo '<script>var json__encode_temp_chart = ['.implode(",",$json__encode_temp).']</script>';
 
+    var_dump($json__encode_temp);
+
 
     //---------------------------------РАЗДЕЛ ДАТЫ ДЛЯ ГРАФИКА----------------------------------
     //получаем данные дня прогноза и делаем массив из коротких названий ПН, ВТ....
     $sql = 'SELECT data_prognoza, time_prognoza
     FROM prognoz
-    WHERE city_id = ?
+    WHERE city_id = ? and
+    (time_prognoza = \'03:00:00\' or 
+    time_prognoza = \'09:00:00\' or 
+    time_prognoza = \'15:00:00\' or 
+    time_prognoza = \'21:00:00\') 
     ORDER BY data_prognoza ASC, time_prognoza ASC';
     $query = $pdo->prepare($sql);
     $query->execute([$gorod_id]);
