@@ -67,7 +67,7 @@
                     $usloviya = 'Облачно с прояснениями';
                     break;
                 case 'clear sky':
-                    $usloviya = 'Чистое небо';
+                    $usloviya = 'Ясно';
                     break;
                 case 'few clouds':
                     $usloviya = 'Небольшая облачность';

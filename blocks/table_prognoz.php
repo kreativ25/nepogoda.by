@@ -132,6 +132,76 @@
         $time_BD = date_create($gorod_id[$i]["time_prognoza"]);
         $time_hort = date_format($time_BD, 'H:i');
 
+        //выбираем тучки в зависимости от условий погоды
+
+        if ($gorod_id[$i]["usloviya"] == 'Облачно с прояснениями'){
+            if ($gorod_id[$i]["time_prognoza"] == '09:00:00' or
+                $gorod_id[$i]["time_prognoza"] == '12:00:00' or
+                $gorod_id[$i]["time_prognoza"] == '15:00:00')
+            {
+                $linck = '../img/32х32/Обл_с_проясн_32_х_32_день.png';
+            } else {
+                $linck = '../img/32х32/Обл_с_проясн_32_х_32_ночь.png';
+            }
+        }
+
+        if ($gorod_id[$i]["usloviya"] == 'Ясно'){
+            if ($gorod_id[$i]["time_prognoza"] == '09:00:00' or
+                $gorod_id[$i]["time_prognoza"] == '12:00:00' or
+                $gorod_id[$i]["time_prognoza"] == '15:00:00')
+            {
+                $linck = '../img/32х32/Ясно_32_х_32_день.png';
+            } else {
+                $linck = '../img/32х32/Ясно_32_х_32_ночь.png';
+            }
+        }
+
+        if ($gorod_id[$i]["usloviya"] == 'Небольшая облачность'){
+            if ($gorod_id[$i]["time_prognoza"] == '09:00:00' or
+                $gorod_id[$i]["time_prognoza"] == '12:00:00' or
+                $gorod_id[$i]["time_prognoza"] == '15:00:00')
+            {
+                $linck = '../img/32х32/Неб_обл_32_х_32_день.png';
+            } else {
+                $linck = '../img/32х32/Неб_обл_32_х_32_ночь.png';
+            }
+        }
+
+        if ($gorod_id[$i]["usloviya"] == 'Небольшой дождь'){
+            $linck = '../img/32х32/Неб_дождь_32_х_32.png';
+        }
+
+        if ($gorod_id[$i]["usloviya"] == 'Небольшой снег'){
+            $linck = '../img/32х32/Снег_32_х_32.png';
+        }
+
+        if ($gorod_id[$i]["usloviya"] == 'Дождь'){
+            $linck = '../img/32х32/Дождь_32_х_32.png';
+        }
+
+        if ($gorod_id[$i]["usloviya"] == 'Сплошная облачность'){
+            $linck = '../img/32х32/Сплошн_обл_32_х_32.png';
+        }
+
+        if ($gorod_id[$i]["usloviya"] == 'Переменная облачность'){
+            if ($gorod_id[$i]["time_prognoza"] == '09:00:00' or
+                $gorod_id[$i]["time_prognoza"] == '12:00:00' or
+                $gorod_id[$i]["time_prognoza"] == '15:00:00')
+            {
+                $linck = '../img/32х32/Перем_обл_32_х_32_день.png';
+            } else {
+                $linck = '../img/32х32/Перем_обл_32_х_32_ночь.png';
+            }
+        }
+
+        if ($gorod_id[$i]["usloviya"] == 'Сильный дождь'){
+            $linck = '../img/32х32/Сильн_дождь_32_х_32.png';
+        }
+
+        if ($gorod_id[$i]["usloviya"] == 'Снег'){
+            $linck = '../img/32х32/Снег_32_х_32.png';
+        }
+
         //разделяем дни
         if ($gorod_id[$i]["time_prognoza"] == '00:00:00'){
             echo '
@@ -146,7 +216,7 @@
                         <tr>
                             <td class="text-center">' . $time_hort . '</td>
                             <td class="text-center">' . $gorod_id_print . '</td>
-                            <td> <img src="img/Ясно%20(32х32)%20день.png" alt="небольшой дождь"> </td>
+                            <td> <img src=' . $linck . ' alt="Условия погоды"> </td>
                             <td>' . $gorod_id[$i]["usloviya"] . '</td>
                             <td >' . $gorod_id[$i]["skorost_vetra"] . '</td>
                             <td >' . $gorod_id[$i]["vlazhnost"] . '</td>
