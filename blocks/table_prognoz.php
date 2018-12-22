@@ -307,8 +307,21 @@
                         
                         ';
                         }
-                    echo '
-                        <tr>
+                        //выделяем дни с аномальной температурой
+                        if (($gorod_id[$i]["temp"] < -15) or ($gorod_id[$i]["temp"] > 28) ){
+                            echo '
+                        <tr class="" style="background-color: #f1b0b7">
+                            <td class="text-center">' . $time_hort . '</td>
+                            <td class="text-center">' . $gorod_id_print . '</td>
+                            <td> <img src=' . $linck . ' alt="Условия погоды"> </td>
+                            <td>' . $gorod_id[$i]["usloviya"] . '</td>
+                            <td >' . $gorod_id[$i]["skorost_vetra"] . '</td>
+                            <td >' . $gorod_id[$i]["vlazhnost"] . '</td>
+                        </tr>
+                        ';
+                        } else {
+                        echo '
+                        <tr class="">
                             <td class="text-center">' . $time_hort . '</td>
                             <td class="text-center">' . $gorod_id_print . '</td>
                             <td> <img src=' . $linck . ' alt="Условия погоды"> </td>
@@ -317,7 +330,7 @@
                             <td >' . $gorod_id[$i]["vlazhnost"] . '</td>
                         </tr>
                     ';
-                        }
+                        }}
 
                 echo '
                  </tbody>
