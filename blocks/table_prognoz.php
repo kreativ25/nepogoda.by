@@ -301,7 +301,7 @@
         if ($gorod_id[$i]["time_prognoza"] == '00:00:00'){
             echo '
                         
-                        <tr class="bg-secondary text-white ">
+                        <tr class="bg-secondary text-white" >
                             <td class="bg-secondary text-white" colspan="6"> ' . $den_nedeli_rus .", " . $month_day . " " . $month_rus . ' </td>
                         </tr>
                         
