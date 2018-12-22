@@ -145,16 +145,65 @@
             }
         }
 
-        if ($gorod_id[$i]["usloviya"] == 'Ясно'){
-            if ($gorod_id[$i]["time_prognoza"] == '09:00:00' or
-                $gorod_id[$i]["time_prognoza"] == '12:00:00' or
-                $gorod_id[$i]["time_prognoza"] == '15:00:00')
-            {
-                $linck = '../img/32х32/Ясно_32_х_32_день.png';
-            } else {
-                $linck = '../img/32х32/Ясно_32_х_32_ночь.png';
+
+        //выбираем тучки в зависимости от восхода солнца по каждому месяцу года
+        //-------------------ЯСНО----------------------
+        if ($month == 1 or
+            $month == 2 or
+            $month == 11 or
+            $month == 12){
+
+            if ($gorod_id[$i]["usloviya"] == 'Ясно'){
+                if ($gorod_id[$i]["time_prognoza"] == '09:00:00' or
+                    $gorod_id[$i]["time_prognoza"] == '12:00:00' or
+                    $gorod_id[$i]["time_prognoza"] == '15:00:00')
+                {
+                    $linck = '../img/32х32/Ясно_32_х_32_день.png';
+                } else {
+                    $linck = '../img/32х32/Ясно_32_х_32_ночь.png';
+                }
             }
         }
+
+        if ($month == 3 or
+            $month == 4 or
+            $month == 5 or
+            $month == 6 or
+            $month == 7 or
+            $month == 8){
+
+            if ($gorod_id[$i]["usloviya"] == 'Ясно'){
+                if ($gorod_id[$i]["time_prognoza"] == '06:00:00' or
+                    $gorod_id[$i]["time_prognoza"] == '09:00:00' or
+                    $gorod_id[$i]["time_prognoza"] == '12:00:00' or
+                    $gorod_id[$i]["time_prognoza"] == '15:00:00' or
+                    $gorod_id[$i]["time_prognoza"] == '18:00:00' or
+                    $gorod_id[$i]["time_prognoza"] == '21:00:00')
+                {
+                    $linck = '../img/32х32/Ясно_32_х_32_день.png';
+                } else {
+                    $linck = '../img/32х32/Ясно_32_х_32_ночь.png';
+                }
+            }
+        }
+
+        if ($month == 9 or
+            $month == 10){
+
+            if ($gorod_id[$i]["usloviya"] == 'Ясно'){
+                if ($gorod_id[$i]["time_prognoza"] == '06:00:00' or
+                    $gorod_id[$i]["time_prognoza"] == '09:00:00' or
+                    $gorod_id[$i]["time_prognoza"] == '12:00:00' or
+                    $gorod_id[$i]["time_prognoza"] == '15:00:00')
+                {
+                    $linck = '../img/32х32/Ясно_32_х_32_день.png';
+                } else {
+                    $linck = '../img/32х32/Ясно_32_х_32_ночь.png';
+                }
+            }
+        }
+
+        //------------------------ КОНЕЦ---ЯСНО----------------------------------
 
         if ($gorod_id[$i]["usloviya"] == 'Небольшая облачность'){
             if ($gorod_id[$i]["time_prognoza"] == '09:00:00' or
@@ -183,16 +232,62 @@
             $linck = '../img/32х32/Сплошн_обл_32_х_32.png';
         }
 
-        if ($gorod_id[$i]["usloviya"] == 'Переменная облачность'){
-            if ($gorod_id[$i]["time_prognoza"] == '09:00:00' or
-                $gorod_id[$i]["time_prognoza"] == '12:00:00' or
-                $gorod_id[$i]["time_prognoza"] == '15:00:00')
-            {
-                $linck = '../img/32х32/Перем_обл_32_х_32_день.png';
-            } else {
-                $linck = '../img/32х32/Перем_обл_32_х_32_ночь.png';
+        //---------------------начало---ПЕРЕМЕННАЯ ОБЛАЧНОСТЬ-----------------------------
+        if ($month == 1 or
+            $month == 2 or
+            $month == 11 or
+            $month == 12){
+
+            if ($gorod_id[$i]["usloviya"] == 'Переменная облачность'){
+                if ($gorod_id[$i]["time_prognoza"] == '09:00:00' or
+                    $gorod_id[$i]["time_prognoza"] == '12:00:00' or
+                    $gorod_id[$i]["time_prognoza"] == '15:00:00')
+                {
+                    $linck = '../img/32х32/Перем_обл_32_х_32_день.png';
+                } else {
+                    $linck = '../img/32х32/Перем_обл_32_х_32_ночь.png';
+                }
             }
         }
+
+        if ($month == 3 or
+            $month == 4 or
+            $month == 5 or
+            $month == 6 or
+            $month == 7 or
+            $month == 8){
+
+            if ($gorod_id[$i]["usloviya"] == 'Переменная облачность'){
+                if ($gorod_id[$i]["time_prognoza"] == '06:00:00' or
+                    $gorod_id[$i]["time_prognoza"] == '09:00:00' or
+                    $gorod_id[$i]["time_prognoza"] == '12:00:00' or
+                    $gorod_id[$i]["time_prognoza"] == '15:00:00' or
+                    $gorod_id[$i]["time_prognoza"] == '18:00:00' or
+                    $gorod_id[$i]["time_prognoza"] == '21:00:00')
+                {
+                    $linck = '../img/32х32/Перем_обл_32_х_32_день.png';
+                } else {
+                    $linck = '../img/32х32/Перем_обл_32_х_32_ночь.png';
+                }
+            }
+        }
+
+        if ($month == 9 or
+            $month == 10){
+
+            if ($gorod_id[$i]["usloviya"] == 'Переменная облачность'){
+                if ($gorod_id[$i]["time_prognoza"] == '06:00:00' or
+                    $gorod_id[$i]["time_prognoza"] == '09:00:00' or
+                    $gorod_id[$i]["time_prognoza"] == '12:00:00' or
+                    $gorod_id[$i]["time_prognoza"] == '15:00:00')
+                {
+                    $linck = '../img/32х32/Перем_обл_32_х_32_день.png';
+                } else {
+                    $linck = '../img/32х32/Перем_обл_32_х_32_ночь.png';
+                }
+            }
+        }
+        //--------------------конец---ПЕРЕМЕННАЯ ОБЛАЧНОСТЬ------------------------------------
 
         if ($gorod_id[$i]["usloviya"] == 'Сильный дождь'){
             $linck = '../img/32х32/Сильн_дождь_32_х_32.png';
