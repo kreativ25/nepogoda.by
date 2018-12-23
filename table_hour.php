@@ -55,7 +55,8 @@
             require 'blocks/Chart_hour.php';
 
             //----------------------------------ПОДКЛЮЧАЕМ ТАБЛИЦУ--------------------------------------
-            require 'blocks/table_prognoz.php';
+            //require 'blocks/table_prognoz.php'; //почасовая таблица
+            require 'blocks/table_prognoz_big.php'; //укрупненная таблица
 
             ?>
 

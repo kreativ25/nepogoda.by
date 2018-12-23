@@ -306,12 +306,18 @@
                         </tr>
                         
                         ';
-                        }
-                        //выделяем дни с аномальной температурой
-                        if (($gorod_id[$i]["temp"] < -15) or ($gorod_id[$i]["temp"] > 28) ){
-                            echo '
-                        <tr class="" style="background-color: #f1b0b7">
-                            <td class="text-center">' . $time_hort . '</td>
+        }
+
+        //делаем разделение по периоду дня - День, Вечер...
+
+        //-------------------------------НОЧЬ---------------------------------
+        if ($gorod_id[$i]["time_prognoza"] == '03:00:00'){
+
+            //выделяем дни с аномальной температурой
+            if (($gorod_id[$i]["temp"] < -15) or ($gorod_id[$i]["temp"] > 28) ){
+                echo '
+                        <tr style="background-color: #f1b0b7">
+                            <td class="text-center"> ночь </td>
                             <td class="text-center">' . $gorod_id_print . '</td>
                             <td> <img src=' . $linck . ' alt="Условия погоды"> </td>
                             <td>' . $gorod_id[$i]["usloviya"] . '</td>
@@ -319,10 +325,10 @@
                             <td >' . $gorod_id[$i]["vlazhnost"] . '</td>
                         </tr>
                         ';
-                        } else {
-                        echo '
-                        <tr class="">
-                            <td class="text-center">' . $time_hort . '</td>
+            } else {
+                echo '
+                        <tr>
+                            <td class="text-center"> ночь </td>
                             <td class="text-center">' . $gorod_id_print . '</td>
                             <td> <img src=' . $linck . ' alt="Условия погоды"> </td>
                             <td>' . $gorod_id[$i]["usloviya"] . '</td>
@@ -330,12 +336,103 @@
                             <td >' . $gorod_id[$i]["vlazhnost"] . '</td>
                         </tr>
                     ';
-                        }}
+            }
+        }
+        //------------------------конец-НОЧИ-----------------------------------
 
+        //-------------------------------УТРО---------------------------------
+        if ($gorod_id[$i]["time_prognoza"] == '09:00:00'){
+
+            //выделяем дни с аномальной температурой
+            if (($gorod_id[$i]["temp"] < -15) or ($gorod_id[$i]["temp"] > 28) ){
+                echo '
+                        <tr style="background-color: #f1b0b7">
+                            <td class="text-center"> утро </td>
+                            <td class="text-center">' . $gorod_id_print . '</td>
+                            <td> <img src=' . $linck . ' alt="Условия погоды"> </td>
+                            <td>' . $gorod_id[$i]["usloviya"] . '</td>
+                            <td >' . $gorod_id[$i]["skorost_vetra"] . '</td>
+                            <td >' . $gorod_id[$i]["vlazhnost"] . '</td>
+                        </tr>
+                        ';
+            } else {
+                echo '
+                        <tr>
+                            <td class="text-center"> утро </td>
+                            <td class="text-center">' . $gorod_id_print . '</td>
+                            <td> <img src=' . $linck . ' alt="Условия погоды"> </td>
+                            <td>' . $gorod_id[$i]["usloviya"] . '</td>
+                            <td >' . $gorod_id[$i]["skorost_vetra"] . '</td>
+                            <td >' . $gorod_id[$i]["vlazhnost"] . '</td>
+                        </tr>
+                    ';
+            }
+        }
+        //------------------------конец-УТРО-----------------------------------
+
+        //-------------------------------ДЕНЬ---------------------------------
+        if ($gorod_id[$i]["time_prognoza"] == '15:00:00'){
+
+            //выделяем дни с аномальной температурой
+            if (($gorod_id[$i]["temp"] < -15) or ($gorod_id[$i]["temp"] > 28) ){
+                echo '
+                        <tr style="background-color: #f1b0b7">
+                            <td class="text-center"> день </td>
+                            <td class="text-center">' . $gorod_id_print . '</td>
+                            <td> <img src=' . $linck . ' alt="Условия погоды"> </td>
+                            <td>' . $gorod_id[$i]["usloviya"] . '</td>
+                            <td >' . $gorod_id[$i]["skorost_vetra"] . '</td>
+                            <td >' . $gorod_id[$i]["vlazhnost"] . '</td>
+                        </tr>
+                        ';
+            } else {
+                echo '
+                        <tr>
+                            <td class="text-center"> день </td>
+                            <td class="text-center">' . $gorod_id_print . '</td>
+                            <td> <img src=' . $linck . ' alt="Условия погоды"> </td>
+                            <td>' . $gorod_id[$i]["usloviya"] . '</td>
+                            <td >' . $gorod_id[$i]["skorost_vetra"] . '</td>
+                            <td >' . $gorod_id[$i]["vlazhnost"] . '</td>
+                        </tr>
+                    ';
+            }
+        }
+        //------------------------конец-ДЕНЬ-----------------------------------
+
+        //-------------------------------ВЕЧЕР---------------------------------
+        if ($gorod_id[$i]["time_prognoza"] == '21:00:00'){
+
+            //выделяем дни с аномальной температурой
+            if (($gorod_id[$i]["temp"] < -15) or ($gorod_id[$i]["temp"] > 28) ){
+                echo '
+                        <tr style="background-color: #f1b0b7">
+                            <td class="text-center"> вечер </td>
+                            <td class="text-center">' . $gorod_id_print . '</td>
+                            <td> <img src=' . $linck . ' alt="Условия погоды"> </td>
+                            <td>' . $gorod_id[$i]["usloviya"] . '</td>
+                            <td >' . $gorod_id[$i]["skorost_vetra"] . '</td>
+                            <td >' . $gorod_id[$i]["vlazhnost"] . '</td>
+                        </tr>
+                        ';
+            } else {
+                echo '
+                        <tr>
+                            <td class="text-center"> вечер </td>
+                            <td class="text-center">' . $gorod_id_print . '</td>
+                            <td> <img src=' . $linck . ' alt="Условия погоды"> </td>
+                            <td>' . $gorod_id[$i]["usloviya"] . '</td>
+                            <td >' . $gorod_id[$i]["skorost_vetra"] . '</td>
+                            <td >' . $gorod_id[$i]["vlazhnost"] . '</td>
+                        </tr>
+                    ';
+            }
+        }
+        //------------------------конец-ВЕЧЕР-----------------------------------
+}
                 echo '
                  </tbody>
                  </table>
                  </div>
                 ';
-
     ?>
