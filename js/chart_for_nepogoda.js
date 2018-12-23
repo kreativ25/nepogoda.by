@@ -2,18 +2,25 @@ var chartData = {
     labels: json__encode_data_chart,
     datasets: [
         {
-            label: "Прогноз температуры",
-            borderColor: 'rgb(255, 99, 132)',
-            data: json__encode_temp_chart
+            label: "Прогноз температуры", //название графика
+            borderColor: 'rgb(255, 99, 132)', //Цвет линии
+            data: json__encode_temp_chart,
+            pointBackgroundColor: 'rgb(221, 100, 127)', //Цвет границы для точек
+            backgroundColor: 'rgba(0, 0, 0, 0.03)', //Цвет заливки под линией
+            pointRadius: 2, //Радиус формы точки
+            borderWidth: 2 //ширина линии в пикселях
+
+
         }
     ]
 };
 
 var opt = {
     legend: {
-        display: true,
+        display: false,
         labels: {
-            fontColor: 'rgb(255, 99, 132)'
+            fontColor: 'rgb(255, 99, 132)',
+
         }
     },
     events: true,
