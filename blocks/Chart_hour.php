@@ -83,6 +83,24 @@
         break;
     };
 
+    //---------добавляем период дня сцепки с днем недели-------------------------
+
+    $data_hort = "";
+    if ($json__encode_data_prognoza[$i]['time_prognoza'] == '03:00:00'){
+        $data_hort = '-н';
+    }
+    if ($json__encode_data_prognoza[$i]['time_prognoza'] == '09:00:00'){
+            $data_hort = '-у';
+    }
+    if ($json__encode_data_prognoza[$i]['time_prognoza'] == '15:00:00'){
+            $data_hort = '-д';
+    }
+    if ($json__encode_data_prognoza[$i]['time_prognoza'] == '21:00:00'){
+            $data_hort = '-в';
+    }
+    //---------------------------------------------------------------------------
+
+
     //добавляем короткую дату в основной массив
     $date_prognoza_array_temp['data_prognoza'] = $json__encode_data_prognoza[$i]['data_prognoza'];
     $date_prognoza_array[] = $date_prognoza_array_temp['data_prognoza'];
@@ -94,7 +112,7 @@
     //добовляем в массив время прогноза вторым столбцом
     $time_prognoza_array[] = $date_prognoza_array_temp['time_prognoza'];
 
-    $data_prognoza_array_1 = $data_prognoza_array_1 . '"' . $json__encode_data_prognoza[$i]['data_prognoza'] . '",';
+    $data_prognoza_array_1 = $data_prognoza_array_1 . '"' . $json__encode_data_prognoza[$i]['data_prognoza'] . $data_hort . '",';
     };
 
     //убираем последнюю запятую в списке
