@@ -13,7 +13,7 @@
 
 <main class="container mt-5 container-main">
     <div class="row">
-        <div class="col-md-8 mb-3">
+        <div class="col-md-9 mb-3">
 
             <canvas id="myChart" width="400" height="200"></canvas>
 
