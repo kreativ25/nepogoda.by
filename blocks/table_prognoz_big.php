@@ -22,7 +22,7 @@
                         <thead>
                         <tr class="bg-dark text-white" style="height: 33px;  vertical-align: middle">
                             <th class="text-center h6" >Дата</th>
-                            <th class="h6">Темп.</th>
+                            <th class="text-center h6">Темп.</th>
                             <th></th>
                             <th class="h6">Погодные явления</th>
                             <th class="h6">Ветер, м/с</th>
