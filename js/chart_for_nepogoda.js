@@ -8,19 +8,49 @@ var chartData = {
             pointBackgroundColor: 'rgb(221, 100, 127)', //Цвет границы для точек
             backgroundColor: 'rgba(0, 0, 0, 0.03)', //Цвет заливки под линией
             pointRadius: 2, //Радиус формы точки
-            borderWidth: 2 //ширина линии в пикселях
-
+            borderWidth: 2, //ширина линии в пикселях
 
         }
     ]
 };
 
 var opt = {
+    layout: {
+        padding: { //отступы границ графика - позволяют видеть все значения графика
+            left: 0,
+            right: 0,
+            top: 25,
+            bottom: 25
+        }
+    },
+
+
+
+
+
+
+
+
+    scales: {
+        yAxes: [{
+            ticks: {
+                // suggestedMin: -30, // минимальное значение по оси Y
+                // suggestedMax: 37 // максимальное заначение по оси Y
+                 stepSize: 1, // размер шага для оси X
+            }
+        }],
+        xAxes: [{
+            ticks: {
+                // suggestedMin: -30, // минимальное значение по оси Y
+                // suggestedMax: 37 // максимальное заначение по оси Y
+                stepSize: 1 // размер шага для оси X
+            }
+        }]
+    },
     legend: {
         display: false,
         labels: {
             fontColor: 'rgb(255, 99, 132)',
-
         }
     },
     events: true,
