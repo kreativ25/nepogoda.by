@@ -8,8 +8,7 @@ var chartData = {
             pointBackgroundColor: 'rgb(221, 100, 127)', //Цвет границы для точек
             backgroundColor: 'rgba(0, 0, 0, 0.03)', //Цвет заливки под линией
             pointRadius: 2, //Радиус формы точки
-            borderWidth: 2, //ширина линии в пикселях
-
+            borderWidth: 2 //ширина линии в пикселях
         }
     ]
 };
@@ -19,18 +18,10 @@ var opt = {
         padding: { //отступы границ графика - позволяют видеть все значения графика
             left: 0,
             right: 0,
-            top: 25,
-            bottom: 25
+            top: 20,
+            bottom: 5
         }
     },
-
-
-
-
-
-
-
-
     scales: {
         yAxes: [{
             ticks: {
@@ -85,7 +76,6 @@ var ctx = document.getElementById("myChart"),
         data: chartData,
         options: opt
     });
-
 
 /*
 var ctx = document.getElementById('myChart').getContext('2d');
