@@ -17,7 +17,7 @@
     $json__encode_temp = $query->fetchAll(PDO::FETCH_COLUMN ); // возвращает массив, который состоит из всех строк
 
     //передаем в скрипт данные температуры погоды!
-    echo '<script>var json__encode_temp_chart = ['.implode(",",$json__encode_temp).']</script>';
+    echo '<script> var json__encode_temp_chart = ['.implode(",",$json__encode_temp).']</script>';
 
     //var_dump($json__encode_temp);
 
@@ -59,25 +59,25 @@
     $den_nedeli_array_chart = strftime("%w", strtotime($json__encode_data_prognoza[$i]['data_prognoza']));
     switch ($den_nedeli_array_chart){
         case 0:
-    $json__encode_data_prognoza[$i]['data_prognoza'] = 'вс';
+    $json__encode_data_prognoza[$i]['data_prognoza'] = 'вс.';
         break;
         case 1:
-    $json__encode_data_prognoza[$i]['data_prognoza'] = 'пн';
+    $json__encode_data_prognoza[$i]['data_prognoza'] = 'пн.';
         break;
         case 2:
-    $json__encode_data_prognoza[$i]['data_prognoza'] = 'вт';
+    $json__encode_data_prognoza[$i]['data_prognoza'] = 'вт.';
         break;
         case 3:
-    $json__encode_data_prognoza[$i]['data_prognoza'] = 'ср';
+    $json__encode_data_prognoza[$i]['data_prognoza'] = 'ср.';
         break;
         case 4:
-    $json__encode_data_prognoza[$i]['data_prognoza'] = 'чт';
+    $json__encode_data_prognoza[$i]['data_prognoza'] = 'чт.';
         break;
         case 5:
-    $json__encode_data_prognoza[$i]['data_prognoza'] = 'пт';
+    $json__encode_data_prognoza[$i]['data_prognoza'] = 'пт.';
         break;
         case 6:
-    $json__encode_data_prognoza[$i]['data_prognoza'] = 'сб';
+    $json__encode_data_prognoza[$i]['data_prognoza'] = 'сб.';
         break;
     };
 
@@ -85,16 +85,16 @@
 
     $data_hort = "";
     if ($json__encode_data_prognoza[$i]['time_prognoza'] == '03:00:00'){
-        $data_hort = '-н';
+        $data_hort = ' ночь';
     }
     if ($json__encode_data_prognoza[$i]['time_prognoza'] == '09:00:00'){
-            $data_hort = '-у';
+            $data_hort = ' утро';
     }
     if ($json__encode_data_prognoza[$i]['time_prognoza'] == '15:00:00'){
-            $data_hort = '-д';
+            $data_hort = ' день';
     }
     if ($json__encode_data_prognoza[$i]['time_prognoza'] == '21:00:00'){
-            $data_hort = '-в';
+            $data_hort = ' вечер';
     }
     //---------------------------------------------------------------------------
 
@@ -117,7 +117,7 @@
     $data_prognoza_array_1 = trim($data_prognoza_array_1, ",");
 
     //передаем в скрипт подписи данных для графика!
-    echo '<script>var json__encode_data_chart = ['.$data_prognoza_array_1.']</script>';
+    echo '<script> var json__encode_data_chart = ['.$data_prognoza_array_1.']</script>';
 
 // ------------------------------КОНЕЦ ЗАПРОСОВ ДЛЯ ГРАФИКА----------------------------------
 
