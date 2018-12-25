@@ -11,7 +11,7 @@
 <body>
 <?php require 'blocks/header.php'; ?>
 
-<main class="container mt-5 container-main">
+<main class="container content mt-5 container-main">
     <div class="row">
         <div class="col-md-12 mb-3 ">
 
