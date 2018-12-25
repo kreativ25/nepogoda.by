@@ -48,13 +48,6 @@
     //иницилизируем временный массив для записи в основной
     $date_prognoza_array_temp = [];
 
-    //убираем дублирующиеся записи при обновлении БД
-    $x = $i - 1;
-    if ($json__encode_data_prognoza[$i]['data_prognoza'] == $json__encode_data_prognoza[$x]['data_prognoza'] and
-    $json__encode_data_prognoza[$i]['time_prognoza'] == $json__encode_data_prognoza[$x]['time_prognoza']){
-    continue;
-    };
-
     //преобразуем дату в короткий формат
     $den_nedeli_array_chart = strftime("%w", strtotime($json__encode_data_prognoza[$i]['data_prognoza']));
     switch ($den_nedeli_array_chart){
@@ -81,6 +74,13 @@
         break;
     };
 
+    //убираем дублирующиеся записи при обновлении БД
+        $x = $i - 1;
+        if (($json__encode_data_prognoza[$i]['data_prognoza'] == $json__encode_data_prognoza[$x]['data_prognoza']) and
+            ($json__encode_data_prognoza[$i]['time_prognoza'] == $json__encode_data_prognoza[$x]['time_prognoza'])){
+            continue;
+        };
+
     //---------добавляем период дня сцепки с днем недели-------------------------
 
     $data_hort = "";
@@ -97,7 +97,6 @@
             $data_hort = ' вечер';
     }
     //---------------------------------------------------------------------------
-
 
     //добавляем короткую дату в основной массив
     $date_prognoza_array_temp['data_prognoza'] = $json__encode_data_prognoza[$i]['data_prognoza'];
