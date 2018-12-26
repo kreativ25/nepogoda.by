@@ -1,1 +1,7 @@
 ErrorDocument 404 /error.php
+
+
+
+#RewriteCond %{QUERY_STRING} ^gorod_poisk=(.*)$ [NC]
+#RewriteRule ^spisok_prognoz\.php$ /new-address.php? [R=301,L]
+#http://pogoda/spisok_prognoz.php?gorod_poisk=

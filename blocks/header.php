@@ -26,7 +26,7 @@
                 </li>
 
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Список городов</a>
+                    <a class="nav-link" href="../spisok.php">Список городов</a>
                 </li>
 
                 <li class="nav-item dropdown">
