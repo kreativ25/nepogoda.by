@@ -35,8 +35,8 @@
             //создаем массив с алфавитом
             mb_internal_encoding("UTF-8"); //устанавливаем кодировку для php
             $alphabet = array(
-                'А', 'Б', 'В', 'Г', 'Д', 'Е', 'Ё', 'Ж', 'З','И','Й','К','Л','М','Н',
-                'О','П','Р','С','Т','У','Ф','Х','Ц','Ч','Ш','Щ','Ы', 'Э','Ю','Я');
+                'А', 'Б', 'В', 'Г', 'Д', 'Е','Ж', 'З','И','К','Л','М','Н',
+                'О','П','Р','С','Т','У','Ф','Х','Ч','Ш','Щ','Э','Ю','Я');
 
             //выбираем все города из БД
             require_once 'mysql_connect.php';
@@ -60,30 +60,45 @@
             ';
 
             for ($i = 0; $i < count($alphabet); $i++){
+                    //проверяем есть ли города подходящие для алфавита
                     for ($x = 0; $x < $gorod_count; $x++){
                         if ($alphabet[$i] == mb_substr($gorod_rus[$x],0,1)){
-
                             echo '
                             <div class="row text-center">
                                 <div class="col-md-12">
                                     <h2 class="text-left">' . $alphabet[$i] . '</h2>
                                 </div>
-                            </div>
-                                 ';
+                            </div> 
+                            <div class="row">
+                            <div class="col-md-4">
+                            ';
                             break;
+                        }else{
+                            //continue;
                         }
                     }
-
+                    //добавляем название города в виде ссылки
+                    for ($a = 0; $a < $gorod_count; $a++){
+                        if ($alphabet[$i] == mb_substr($gorod_rus[$a],0,1)){
+                            echo '
+                            <ul class="list-unstyled">
+                                <a href= "spisok_prognoz.php?gorod_poisk=' . $gorod_rus[$a] . ' "><li>' . $gorod_rus[$a] . '</li></a>
+                            </ul>
+                            ';
+                        }
+                    }
+                echo '
+                    </div>
+                    </div>
+                 ';
             }
             echo '
             </div>
             </section>
             ';
-
-
-
-
             ?>
+
+
 
 
             <section class="banner-img py-5">

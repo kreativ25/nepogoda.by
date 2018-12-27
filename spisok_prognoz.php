@@ -33,8 +33,8 @@
                 $error= 'Короткое название!';
             }
 
-            if (strlen($gorod_poisk ) > 23) {
-                $error= 'Длинное название название!';
+            if (strlen($gorod_poisk ) > 50) {
+                $error= 'Длинное название!';
             }
 
             if ($error != ''){
@@ -52,6 +52,7 @@
             $query->execute([$gorod_poisk]);
             $gorod_id = $query->fetchColumn();
 
+            //непонятно для чего этот блок тут - возможно на удаление - НА ПРОВЕРКУ!
             $link = 'http://api.openweathermap.org/data/2.5/forecast?id=' . $gorod_id . '&appid=' . API_KEY . '&units=metric';
             $api = file_get_contents($link);
             $nepogoda = json_decode($api, true);
