@@ -42,8 +42,8 @@
             //выводим на сайт количество городов в БД
             echo '
                      <div class="text-left text-justify mt-5" >
-                        <p class="h3">
-                            Сегодня в базе: '. $gorod_count . ' населенных пунктов Беларуси! 
+                        <p class="h4">
+                            <a href="/" class="text-primary">nepogoda.by</a> - это прогноз погоды в '. $gorod_count . ' населенных пунктах Беларуси! 
                         </p>
                     </div>
              ';

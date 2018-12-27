@@ -11,19 +11,9 @@
 <body>
 <?php require 'blocks/header.php'; ?>
 
-<main class="container mt-5 container-main">
+<main class="container mt-3 container-main">
     <div class="row">
         <div class="col-md-9 mb-3">
-
-            <div>
-                <p class="h4">
-                    Прогноз из списка
-                </p>
-            </div>
-
-
-            <canvas id="myChart" width="400" height="200"></canvas>
-
 
             <?php
             $gorod_poisk = trim(filter_var($_GET['gorod_poisk'],FILTER_SANITIZE_STRING));
@@ -42,6 +32,19 @@
                 exit();
             }
 
+            echo '
+             <div class="">
+             
+                 <h4>Прогноз погоды:  '. $gorod_poisk .'</h4>
+                    
+        
+            </div>
+            ';
+            ?>
+
+                <canvas id="myChart" width="400" height="200"></canvas>
+
+            <?php
             require_once 'mysql_connect.php';
 
             define("API_KEY", "ab06caeacd9e4f38c2b216a394d0ff11");

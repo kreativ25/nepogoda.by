@@ -1,14 +1,8 @@
 <div class="position-static ml-0">
 
-    <div class="bg-light" style="height: 140px;">
-        <div class="text-lg-left ">
-            <h1 class="display-4">Nepogoda.by</h1>
-            <p class="lead">Прогноз погоды в каждом населенном пункте Беларуси</p>
-        </div>
-    </div>
 
     <nav class="navbar navbar-expand-md navbar-dark bg-dark mt-0">
-        <a class="navbar-brand text-warning" href="/">Главная</a>
+        <a class="navbar-brand text-warning" href="/">nepogoda.by</a>
         <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
