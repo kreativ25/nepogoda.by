@@ -16,7 +16,7 @@
         <div class="col-md-8 mb-3">
 
             <form method="get" action="spisok_prognoz.php">
-                <div class="input-group mb-3">
+                <div class="input-group mb-3 ">
                     <input type="text" class="form-control" name="gorod_poisk" id="gorod_poisk" placeholder="Название..." aria-label="Recipient's username" aria-describedby="button-addon2">
                     <div class="input-group-append">
                         <button class="btn btn-outline-secondary" type="submit" id="gorod_poisk_id">Найти населенный пункт</button>
@@ -38,6 +38,15 @@
             $query = $pdo->prepare($sql);
             $query->execute();
             $gorod_count = $query->fetchColumn(); //возвращает количество городов в БД
+
+            //выводим на сайт количество городов в БД
+            echo '
+                     <div class="text-left text-justify mt-5" >
+                        <p class="h3">
+                            Сегодня в базе: '. $gorod_count . ' населенных пунктов Беларуси! 
+                        </p>
+                    </div>
+             ';
 
             //Создаем массив со списком городов
             $gorod_rus = $pdo->query('SELECT gorod_name_rus FROM gorod ORDER BY gorod_name_rus ASC')->fetchAll(PDO::FETCH_COLUMN);
@@ -86,48 +95,6 @@
             ';
             ?>
 
-
-
-
-            <section class="banner-img py-5">
-                <div class="container">
-
-
-                    <div class="row text-center">
-                        <div class="col-md-12">
-                            <h2 class="text-left">A</h2>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-4">
-                            <ul class="list-unstyled">
-                                <a href="#"><li>Cars in New Delhi</li></a>
-                            </ul>
-                        </div>
-                    </div>
-
-                </div>
-            </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         </div>
         <?php require 'blocks/aside.php' ?>
     </div>
@@ -136,8 +103,3 @@
 <?php require 'blocks/footer.php' ?>
 </body>
 </html>
-
-
-<?php
-//gorod_poisk - на русском
-?>
