@@ -24,6 +24,7 @@ var outerSplashHolder = outerSVG.group();
 var outerLeafHolder = outerSVG.group();
 var outerSnowHolder = outerSVG.group();
 
+
 var lightningTimeout;
 
 // Set mask for leaf holder
