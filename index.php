@@ -48,6 +48,7 @@
                     <li><a id="button-sun"><i class="wi wi-day-sunny"></i></a></li>
                 </ul>
             </nav>
+
             <div id="card" class="weather">
                 <svg id="inner">
                     <defs>
