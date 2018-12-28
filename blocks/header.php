@@ -10,9 +10,6 @@
         <div class="navbar-collapse collapse" id="navbarsExampleDefault" style="">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Сегодня <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item active">
                     <a class="nav-link" href="#">5 дней</a>
                 </li>
                 <li class="nav-item active">
@@ -23,9 +20,9 @@
                     <a class="nav-link" href="../spisok.php">Список городов</a>
                 </li>
 
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown active">
                     <a class="nav-link dropdown-toggle" href="" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Выбрать</a>
-                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                    <div class="dropdown-menu " aria-labelledby="dropdown01">
                         <a class="dropdown-item" href="#">Минск</a>
                         <a class="dropdown-item" href="#">Брест</a>
                         <a class="dropdown-item" href="#">Гомель</a>
