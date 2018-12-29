@@ -40,6 +40,7 @@
             $gorod_count = $query->fetchColumn(); //возвращает количество городов в БД
 
             //выводим на сайт количество городов в БД
+            /*
             echo '
                      <div class="text-left text-justify mt-5" >
                         <p class="h4">
@@ -47,6 +48,8 @@
                         </p>
                     </div>
              ';
+
+            */
 
             //Создаем массив со списком городов
             $gorod_rus = $pdo->query('SELECT gorod_name_rus FROM gorod ORDER BY gorod_name_rus ASC')->fetchAll(PDO::FETCH_COLUMN);
