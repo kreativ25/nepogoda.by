@@ -32,17 +32,38 @@
                 $mogilev = 625665;
                 $grodno = 627904;
 
-                $sql = 'SELECT city_id, data_prognoza, time_prognoza, temp, usloviya, skorost_vetra, vlazhnost  
+                //----------МИНСК---------------
+
+                $sql = 'SELECT city_id, data_prognoza, time_prognoza, temp, usloviya, skorost_vetra   
                         FROM prognoz
-                        WHERE city_id = ? or city_id = ? or city_id = ? or city_id = ? or city_id = ? or city_id = ?
-                        ORDER BY data_prognoza ASC, time_prognoza ASC';
+                        WHERE city_id = ? 
+                        ORDER BY data_prognoza ASC, time_prognoza ASC 
+                        LIMIT 1';
                 $query = $pdo->prepare($sql);
-                $query->execute([$minsk, $brest, $gomel, $vitebsk, $mogilev, $grodno]);
+                $query->execute([$minsk]);
                 $gorod_id = $query->fetchAll(); // возвращает массив, который состоит из всех строк
 
                 $gorod_id_COUNT = count($gorod_id); //определяем количество строк в массиве
 
-                //print_r($gorod_id[0][6])
+                //блок правильного присвоения картинок и значений температуры
+                require 'mysql_cards.php';
+
+
+                echo '
+                <div class="card mb-4 shadow">
+                        <div class="card-header bg-transparent">
+                            <h4 class="my-0 font-weight-normal"> <a href="spisok_prognoz.php?gorod_poisk=Минск" class="text-decoration-none">Минск</a></h4>
+                        </div>
+                        <div class="card-body">
+                            <h1 class="card-title pricing-card-title"> '. $temp_card .' <small class="text-muted">/ <img src=' . $linck . ' alt="Условия погоды"></small></h1>
+                            <ul class="list-unstyled mt-3 mb-4">
+                                <li>'. $gorod_id[0][4] .'</li>
+                                <li>Ветер '. $gorod_id[0][5] .' м/с</li>
+                            </ul>
+                        </div>
+                    </div>
+                ';
+                //---------Конец МИНСК--------------
 
 
 
