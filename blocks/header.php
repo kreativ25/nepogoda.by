@@ -1,4 +1,6 @@
-<div class="position-static ml-0">
+<?php
+    echo '
+    <div class="position-static ml-0">
 
 
     <nav class="navbar navbar-expand-md navbar-dark bg-dark mt-0">
@@ -23,20 +25,23 @@
                 <li class="nav-item dropdown active">
                     <a class="nav-link dropdown-toggle" href="" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Выбрать</a>
                     <div class="dropdown-menu " aria-labelledby="dropdown01">
-                        <a class="dropdown-item" href="#">Минск</a>
-                        <a class="dropdown-item" href="#">Брест</a>
-                        <a class="dropdown-item" href="#">Гомель</a>
+    
+    ';
 
-                        <a class="dropdown-item" href="#">Витебск</a>
-                        <a class="dropdown-item" href="#">Гродно</a>
-                        <a class="dropdown-item" href="#">Могилев</a>
+    $spisok_dropdown = array("Минск", "Гомель","Лида", "Витебск", "Гродно",
+                             "Брест","Пинск","Барановичи","Бобруйск",
+                             "Мозырь","Борисов","Солигорск","Молодечно",
+                             "Орша","Жлобин","Слуцк","Новополоцк","Полоцк",
+                             "Кобрин","Волковыск");
 
-                        <a class="dropdown-item" href="#">Барановичи</a>
-                        <a class="dropdown-item" href="#">Пинск</a>
-                        <a class="dropdown-item" href="#">Пружаны</a>
+    for ($d = 0; $d < count($spisok_dropdown); $d++){
+        echo '
+                 <a class="dropdown-item" href="spisok_prognoz.php?gorod_poisk='. $spisok_dropdown[$d] . '"">'. $spisok_dropdown[$d] . '</a>     
+        ';
+    }
 
-                        <a class="dropdown-item" href="#">Лида</a>
-                    </div>
+    echo '
+                </div>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0" method="post" action="../table_hour.php">
@@ -45,9 +50,18 @@
             </form>
         </div>
     </nav>
-
-
 </div>
+    ';
+?>
+
+
+
+
+
+
+
+
+
 
 
 
