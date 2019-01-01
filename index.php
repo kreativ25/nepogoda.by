@@ -32,27 +32,59 @@
                 $mogilev = 625665;
                 $grodno = 627904;
 
-                //----------МИНСК---------------
+                //-----------НАЧАЛО --- Прогноз 6 облостынх городов на Главной ------------------------
 
-                $sql = 'SELECT city_id, data_prognoza, time_prognoza, temp, usloviya, skorost_vetra   
+                //начало блока
+                echo '
+                <div class="card-deck text-center ">
+                ';
+
+                $gorod_connect = array($minsk,$brest,$gomel,$vitebsk, $mogilev, $grodno);
+                //print_r($gorod_connect);
+                for ($h = 0; $h < count($gorod_connect); $h ++){
+                    $gorod_for = "";
+                    switch ($gorod_connect[$h]){
+                        case 625143:
+                            $gorod_for = "Минск";
+                            break;
+                        case 629634:
+                            $gorod_for = "Брест";
+                            break;
+                        case 627907:
+                            $gorod_for = "Гомель";
+                            break;
+                        case 620127:
+                            $gorod_for = "Витебск";
+                            break;
+                        case 625665:
+                            $gorod_for = "Могилев";
+                            break;
+                        case 627904:
+                            $gorod_for = "Гродно";
+                            break;
+                    }
+
+                    $gorod_sql = $gorod_connect[$h];
+
+                 //подключаемся к базе
+                    $sql = 'SELECT city_id, data_prognoza, time_prognoza, temp, usloviya, skorost_vetra   
                         FROM prognoz
                         WHERE city_id = ? 
                         ORDER BY data_prognoza ASC, time_prognoza ASC 
                         LIMIT 1';
-                $query = $pdo->prepare($sql);
-                $query->execute([$minsk]);
-                $gorod_id = $query->fetchAll(); // возвращает массив, который состоит из всех строк
+                    $query = $pdo->prepare($sql);
+                    $query->execute([$gorod_sql]);
+                    $gorod_id = $query->fetchAll(); // возвращает массив, который состоит из всех строк
 
-                $gorod_id_COUNT = count($gorod_id); //определяем количество строк в массиве
+                    $gorod_id_COUNT = count($gorod_id); //определяем количество строк в массиве
 
-                //блок правильного присвоения картинок и значений температуры
-                require 'mysql_cards.php';
+                    //блок правильного присвоения картинок и значений температуры
+                    require 'mysql_cards.php';
 
-
-                echo '
+                    echo '
                 <div class="card mb-4 shadow">
                         <div class="card-header bg-transparent">
-                            <h4 class="my-0 font-weight-normal"> <a href="spisok_prognoz.php?gorod_poisk=Минск" class="text-decoration-none">Минск</a></h4>
+                            <h4 class="my-0 font-weight-normal"> <a href="spisok_prognoz.php?gorod_poisk='. $gorod_for . '" class="text-decoration-none">'. $gorod_for . '</a></h4>
                         </div>
                         <div class="card-body">
                             <h1 class="card-title pricing-card-title"> '. $temp_card .' <small class="text-muted">/ <img src=' . $linck . ' alt="Условия погоды"></small></h1>
@@ -63,94 +95,20 @@
                         </div>
                     </div>
                 ';
-                //---------Конец МИНСК--------------
-
-
-
-
-
-
-
+                  //разделяем на 3 блока городов
+                    if ($h == 2){
+                        echo '
+                        </div>
+                        <div class="card-deck  text-center">
+                        ';
+                    }
+                }
+                //закрываем блок
+                echo '
+                </div>
+                ';
+                //-----------КОНЕЦ --- Прогноз 6 облостынх городов на Главной ------------------------
                 ?>
-
-                <div class="card-deck text-center ">
-                    <div class="card mb-4 shadow">
-                        <div class="card-header bg-transparent">
-                            <h4 class="my-0 font-weight-normal"> <a href="spisok_prognoz.php?gorod_poisk=Минск" class="text-decoration-none">Минск</a></h4>
-                        </div>
-                        <div class="card-body">
-                            <h1 class="card-title pricing-card-title"> +5 <small class="text-muted">/ mo</small></h1>
-                            <ul class="list-unstyled mt-3 mb-4">
-                                <li>Небольшой снег</li>
-                                <li>Ветер 5 м/с</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="card mb-4 shadow">
-                        <div class="card-header bg-transparent">
-                            <h4 class="my-0 font-weight-normal"><a href="spisok_prognoz.php?gorod_poisk=Брест" class="text-decoration-none">Брест</a></h4>
-                        </div>
-                        <div class="card-body">
-                            <h1 class="card-title pricing-card-title"> +5 <small class="text-muted">/ mo</small></h1>
-                            <ul class="list-unstyled mt-3 mb-4">
-                                <li>Небольшой снег</li>
-                                <li>Ветер 5 м/с</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="card mb-4 shadow">
-                        <div class="card-header bg-transparent">
-                            <h4 class="my-0 font-weight-normal"><a href="spisok_prognoz.php?gorod_poisk=Гомель" class="text-decoration-none">Гомель</a></h4>
-                        </div>
-                        <div class="card-body">
-                            <h1 class="card-title pricing-card-title"> +5 <small class="text-muted">/ mo</small></h1>
-                            <ul class="list-unstyled mt-3 mb-4">
-                                <li>Небольшой снег</li>
-                                <li>Ветер 5 м/с</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="card-deck  text-center">
-                    <div class="card mb-4 shadow">
-                        <div class="card-header bg-transparent">
-                            <h4 class="my-0 font-weight-normal"><a href="spisok_prognoz.php?gorod_poisk=Витебск" class="text-decoration-none">Витебск</a></h4>
-                        </div>
-                        <div class="card-body">
-                            <h1 class="card-title pricing-card-title"> +5 <small class="text-muted">/ mo</small></h1>
-                            <ul class="list-unstyled mt-3 mb-4">
-                                <li>Небольшой снег</li>
-                                <li>Ветер 5 м/с</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="card mb-4 shadow">
-                        <div class="card-header bg-transparent">
-                            <h4 class="my-0 font-weight-normal"><a href="spisok_prognoz.php?gorod_poisk=Могилев" class="text-decoration-none">Могилев</a></h4>
-                        </div>
-                        <div class="card-body">
-                            <h1 class="card-title pricing-card-title"> +5 <small class="text-muted">/ mo</small></h1>
-                            <ul class="list-unstyled mt-3 mb-4">
-                                <li>Небольшой снег</li>
-                                <li>Ветер 5 м/с</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="card mb-4 shadow">
-                        <div class="card-header bg-transparent">
-                            <h4 class="my-0 font-weight-normal"><a href="spisok_prognoz.php?gorod_poisk=Гродно" class="text-decoration-none">Гродно</a></h4>
-                        </div>
-                        <div class="card-body">
-                            <h1 class="card-title pricing-card-title"> +5 <small class="text-muted">/ mo</small></h1>
-                            <ul class="list-unstyled mt-3 mb-4">
-                                <li>Небольшой снег</li>
-                                <li>Ветер 5 м/с</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
 
 
             </div>
