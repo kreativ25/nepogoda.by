@@ -12,7 +12,7 @@
         <div class="navbar-collapse collapse" id="navbarsExampleDefault" style="">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">5 дней</a>
+                    <a class="nav-link" href="../5_days.php?gorod_poisk=Минск">5 дней</a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="#">Подробный на 5 дней</a>
