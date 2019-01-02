@@ -19,7 +19,7 @@
                 <div class="input-group mb-3 ">
                     <input type="text" class="form-control" name="gorod_poisk" id="gorod_poisk" placeholder="Название..." aria-label="Recipient's username" aria-describedby="button-addon2">
                     <div class="input-group-append">
-                        <button class="btn btn-outline-secondary" type="submit" id="gorod_poisk_id">Найти населенный пункт</button>
+                        <button class="btn btn-outline-secondary" type="submit" id="gorod_poisk_id">Найти</button>
                     </div>
                 </div>
             </form>
