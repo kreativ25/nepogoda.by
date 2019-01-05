@@ -127,8 +127,20 @@
     }
 
     //УДАЛЯЕМ СТАРЫЕ ДАННЫЕ ИЗ БАЗЫ ДАННЫХ!!!
-    $sql = 'DELETE FROM prognoz WHERE  date_bd <= ? AND time_bd <= ?';
+    $sql = 'DELETE FROM prognoz WHERE date_bd <= ? AND time_bd <= ?';
     $query = $pdo->prepare($sql);
     $query->execute([$max_data_obnovlenia_BD, $max_TIME_obnovlenia_BD]);
+
+    //доп проверка - удаляем данные с датой прошлого дня
+
+    $sql = 'SELECT MAX(date_bd) FROM prognoz';
+    $query = $pdo->prepare($sql);
+    $query->execute();
+    $max_data__posle_obnovlenia_BD = $query->fetchColumn(); //возвращает максимальную дату после последнего обновления БД
+
+    $sql = 'DELETE FROM prognoz WHERE date_bd < ?';
+    $query = $pdo->prepare($sql);
+    $query->execute([$max_data__posle_obnovlenia_BD]);
+
 
 ?>
