@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /css/
+Disallow: /img/
+Disallow: /js/
+
+#Sitemap: http://nepogoda.by/sitemap.xml
+#Host: nepogoda.by
