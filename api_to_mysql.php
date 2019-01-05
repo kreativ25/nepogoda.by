@@ -141,6 +141,4 @@
     $sql = 'DELETE FROM prognoz WHERE date_bd < ?';
     $query = $pdo->prepare($sql);
     $query->execute([$max_data__posle_obnovlenia_BD]);
-
-
 ?>

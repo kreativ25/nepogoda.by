@@ -122,13 +122,13 @@
                     </div>
                 ';
                   //разделяем на 3 блока городов
-                    if ($h == 2){
+                    if ($calc == 2){
                         echo '
                         </div>
                         <div class="card-deck  text-center">
                         ';
                     }
-                    $calc = $calc +1;
+                    $calc = $calc + 1;
                 }
                 //закрываем блок
                 echo '
