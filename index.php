@@ -32,6 +32,10 @@
                 $mogilev = 625665;
                 $grodno = 627904;
 
+                //доп города
+                $Baranovichi = 630428;
+                $Lida = 626081;
+
                 //-----------НАЧАЛО --- Прогноз 6 облостынх городов на Главной ------------------------
 
                 //начало блока
@@ -39,9 +43,13 @@
                 <div class="card-deck text-center ">
                 ';
 
-                $gorod_connect = array($minsk,$brest,$gomel,$vitebsk, $mogilev, $grodno);
-                //print_r($gorod_connect);
+                $gorod_connect = array($minsk,$brest,$gomel,$vitebsk, $mogilev, $grodno, $Baranovichi, $Lida);
+
+                //вводим счетчик для проверки городов - в случае отсутствия в БД
+                $calc = '';
+
                 for ($h = 0; $h < count($gorod_connect); $h ++){
+
                     $gorod_for = "";
                     switch ($gorod_connect[$h]){
                         case 625143:
@@ -62,6 +70,14 @@
                         case 627904:
                             $gorod_for = "Гродно";
                             break;
+
+                        //доп города
+                        case 630428:
+                            $gorod_for = "Барановичи";
+                            break;
+                        case 626081:
+                            $gorod_for = "Лида";
+                            break;
                     }
 
                     $gorod_sql = $gorod_connect[$h];
@@ -75,6 +91,16 @@
                     $query = $pdo->prepare($sql);
                     $query->execute([$gorod_sql]);
                     $gorod_id = $query->fetchAll(); // возвращает массив, который состоит из всех строк
+
+                    //------НАЧАЛО---делаем проверку----------
+                    if ( count($gorod_id) == 0){
+                        continue;
+                    };
+
+                    if ($calc > 5){
+                        break;
+                    }
+                    //------КОНЕЦ---делаем проверку----------
 
                     $gorod_id_COUNT = count($gorod_id); //определяем количество строк в массиве
 
@@ -102,6 +128,7 @@
                         <div class="card-deck  text-center">
                         ';
                     }
+                    $calc = $calc +1;
                 }
                 //закрываем блок
                 echo '
@@ -109,7 +136,6 @@
                 ';
                 //-----------КОНЕЦ --- Прогноз 6 облостынх городов на Главной ------------------------
                 ?>
-
 
             </div>
             <?php require 'blocks/aside.php' ?>
