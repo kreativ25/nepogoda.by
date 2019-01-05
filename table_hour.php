@@ -45,11 +45,11 @@
             $query->execute([$gorod_poisk]);
             $gorod_id = $query->fetchColumn();
 
-            $link = 'http://api.openweathermap.org/data/2.5/forecast?id=' . $gorod_id . '&appid=' . API_KEY . '&units=metric';
+            /*$link = 'http://api.openweathermap.org/data/2.5/forecast?id=' . $gorod_id . '&appid=' . API_KEY . '&units=metric';
             $api = file_get_contents($link);
             $nepogoda = json_decode($api, true);
             $nepogoda_count = count($nepogoda['list']); //количество элементов в массиве API для цикла
-
+*/
 
             //----------------------------------ПОДКЛЮЧАЕМ ГРАФИК---------------------------------------
             require 'blocks/Chart_hour.php';
