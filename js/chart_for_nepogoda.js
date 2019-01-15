@@ -27,14 +27,14 @@
                 ticks: {
                     // suggestedMin: -30, // минимальное значение по оси Y
                     // suggestedMax: 37 // максимальное заначение по оси Y
-                     stepSize: 1, // размер шага для оси X
+                     stepSize: 2, // размер шага для оси X
                 }
             }],
             xAxes: [{
                 ticks: {
                     // suggestedMin: -30, // минимальное значение по оси Y
                     // suggestedMax: 37 // максимальное заначение по оси Y
-                    stepSize: 1, // размер шага для оси X
+                    stepSize: 2, // размер шага для оси X
                     //callback: function(json__encode_data_chart, index, values) { //добавляет знак доллара к подписи данных по оси X
                     //    return '$ ' + json__encode_data_chart;
                     //}

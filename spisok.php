@@ -3,7 +3,7 @@
 <head>
 
     <?php
-    $website_title = 'NEPOGODA.BY';
+    $website_title = 'nepogoda.by';
     require 'blocks/head.php';
     ?>
 
@@ -26,14 +26,14 @@
 
             <?php
             //вывводим список городов
-            require 'alphabet_gorod.php'
+            require 'alphabet_gorod.php';
             ?>
 
         </div>
-        <?php require 'blocks/aside.php' ?>
+        <?php require 'blocks/aside.php'; ?>
     </div>
 </main>
 
-<?php require 'blocks/footer.php' ?>
+<?php require 'blocks/footer.php'; ?>
 </body>
 </html>

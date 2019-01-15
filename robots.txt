@@ -3,5 +3,5 @@ Disallow: /css/
 Disallow: /img/
 Disallow: /js/
 
-#Sitemap: http://nepogoda.by/sitemap.xml
-#Host: nepogoda.by
+Sitemap: https://nepogoda.by/sitemap.xml
+Host: https://nepogoda.by/

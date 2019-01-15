@@ -3,7 +3,7 @@
 <head>
 
     <?php
-    $website_title = 'NEPOGODA.BY';
+    $website_title = 'nepogoda.by';
     require 'blocks/head.php';
     ?>
 

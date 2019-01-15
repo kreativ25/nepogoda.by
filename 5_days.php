@@ -3,7 +3,7 @@
     <head>
 
         <?php
-        $website_title = 'NEPOGODA.BY';
+        $website_title = 'nepogoda.by';
         require 'blocks/head.php';
         ?>
 
@@ -18,7 +18,7 @@
                 <?php
                 $gorod_poisk = trim(filter_var($_GET['gorod_poisk'],FILTER_SANITIZE_STRING));
                 $error = '';
-
+                
                 if (strlen($gorod_poisk ) < 3) {
                     echo '
                     <div class="alert alert-danger text-center" role="alert">
@@ -119,12 +119,12 @@
 
                 define("API_KEY", "ab06caeacd9e4f38c2b216a394d0ff11");
                 date_default_timezone_set('Europe/Minsk');   //Устанавливаем таймзону Беларуси
-
+                
                 $sql = 'SELECT gorod_id FROM gorod WHERE gorod_name_rus = ?';
                 $query = $pdo->prepare($sql);
                 $query->execute([$gorod_poisk]);
                 $gorod_id = $query->fetchColumn();
-
+                
                 if ($gorod_id == ""){
                     echo '
                     <div class="alert alert-success text-center" role="alert">

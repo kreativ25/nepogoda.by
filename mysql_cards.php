@@ -17,31 +17,6 @@
     $date = date_create($gorod_id[0]["data_prognoza"]);
     $month_day = date_format($date, 'd');
 
-    $den_nedeli_rus = "";
-    switch ($den_nedeli){
-        case 0:
-            $den_nedeli_rus = 'Воскресенье';
-            break;
-        case 1:
-            $den_nedeli_rus = 'Понедельник';
-            break;
-        case 2:
-            $den_nedeli_rus = 'Вторник';
-            break;
-        case 3:
-            $den_nedeli_rus = 'Среда';
-            break;
-        case 4:
-            $den_nedeli_rus = 'Четверг';
-            break;
-        case 5:
-            $den_nedeli_rus = 'Пятница';
-            break;
-        case 6:
-            $den_nedeli_rus = 'Суббота';
-            break;
-    };
-
     //вытягиваем месяц на русском
     $month = date_format($date, 'n');
     switch ($month){

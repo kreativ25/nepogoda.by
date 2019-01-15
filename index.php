@@ -3,7 +3,7 @@
 <head>
 
     <?php
-    $website_title = 'NEPOGODA.BY';
+    $website_title = 'nepogoda.by';
     require 'blocks/head.php';
     ?>
     <link rel="stylesheet" href="css/style.css">
@@ -128,7 +128,7 @@
                         <div class="card-deck  text-center">
                         ';
                     }
-                    $calc = $calc + 1;
+                    $calc = (int)$calc + 1;
                 }
                 //закрываем блок
                 echo '
