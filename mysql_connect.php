@@ -1,7 +1,7 @@
 <?php
-    $user = 'admin_nepogoda';
-    $password = 'velcom23';
-    $db = 'admin_nepogoda';
+    $user = 'mysql';
+    $password = 'mysql';
+    $db = 'nepogoda';
     $host = 'localhost';
     $charset = 'utf8';
 

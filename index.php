@@ -3,9 +3,13 @@
 <head>
 
     <?php
-    $website_title = 'nepogoda.by';
+    $website_title = 'NEPOGODA.BY | Погода в Минске, Бресте, Гомеле, Могилеве, Витебске, Гродно, Беларусь';
+
+    $website_description = 'Подробный прогноз погоды на сегодня, завтра, неделю, выходные, график погоды, влажность воздуха, скорость ветра, давление. Почасовой прогноз погоды.';
+
     require 'blocks/head.php';
     ?>
+
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>

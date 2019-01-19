@@ -3,7 +3,11 @@
     <head>
 
         <?php
-        $website_title = 'nepogoda.by';
+        $gorod_poisk = trim(filter_var($_POST['gorod_poisk'],FILTER_SANITIZE_STRING));
+        $website_title = 'NEPOGODA.BY | Погода '. $gorod_poisk . '. Прогноз погоды '. $gorod_poisk . ', погода на неделю, прогноз погоды на сегодня';
+
+        $website_description = $gorod_poisk . ' подробный прогноз погоды на сегодня, завтра, неделю, график погоды ' . $gorod_poisk . ', влажность воздуха, скорость ветра, давление.';
+
         require 'blocks/head.php';
         ?>
 
