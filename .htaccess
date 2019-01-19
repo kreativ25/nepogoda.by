@@ -2,6 +2,12 @@ RewriteEngine On
 RewriteCond %{SERVER_PORT} !^443$
 RewriteRule .* https://%{SERVER_NAME}%{REQUEST_URI} [R=301,L]
 
+RewriteCond %{HTTP_HOST} ^www.nepogoda.by$ [NC]
+RewriteRule ^(.*)$ http://nepogoda.by/$1 [R=301,L]
+
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.php\ HTTP/
+RewriteRule ^index\.php$ http://nepogoda.by/ [R=301,L] 
+
 
 ErrorDocument 404 /error.php
 ErrorDocument 500 /error.php
