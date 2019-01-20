@@ -3,7 +3,7 @@
 <head>
 
     <?php
-    $website_title = 'NEPOGODA.BY | Погода в Минске, Бресте, Гомеле, Могилеве, Витебске, Гродно, Беларусь';
+    $website_title = 'NEPOGODA.BY | Погода в Минске, Бресте, Гомеле, Могилеве, Витебске, Гродно';
 
     $website_description = 'Подробный прогноз погоды на сегодня, завтра, неделю, выходные, график погоды, влажность воздуха, скорость ветра, давление. Почасовой прогноз погоды.';
 
@@ -117,7 +117,7 @@
                             <h4 class="my-0 font-weight-normal"> <a href="spisok_prognoz.php?gorod_poisk='. $gorod_for . '" class="text-decoration-none">'. $gorod_for . '</a></h4>
                         </div>
                         <div class="card-body">
-                            <h1 class="card-title pricing-card-title"> '. $temp_card .' <small class="text-muted">/ <img src=' . $linck . ' alt="Условия погоды"></small></h1>
+                            <h2 class="card-title pricing-card-title"> '. $temp_card .' <small class="text-muted">/ <img src=' . $linck . ' alt="Условия погоды"></small></h2>
                             <ul class="list-unstyled mt-3 mb-4">
                                 <li>'. $gorod_id[0][4] .'</li>
                                 <li>Ветер '. $gorod_id[0][5] .' м/с</li>

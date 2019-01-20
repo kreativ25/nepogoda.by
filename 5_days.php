@@ -4,7 +4,7 @@
 
         <?php
         $gorod_poisk = trim(filter_var($_GET['gorod_poisk'],FILTER_SANITIZE_STRING));
-        $website_title = 'NEPOGODA.BY | Погода '. $gorod_poisk . '. Прогноз погоды '. $gorod_poisk . ', погода на неделю, прогноз погоды на сегодня';
+        $website_title = 'NEPOGODA.BY | Погода '. $gorod_poisk . '. Прогноз погоды '. $gorod_poisk . ', погода на неделю';
 
         $website_description = $gorod_poisk . ' подробный прогноз погоды на сегодня, завтра, неделю, график погоды ' . $gorod_poisk . ', влажность воздуха, скорость ветра, давление.';
 
@@ -113,7 +113,7 @@
 
                 echo '
                  <div class="mb-4">
-                     <h4>Прогноз погоды:  '. $gorod_poisk .'</h4>
+                     <h1 class="font-weight-light">Погода: '. $gorod_poisk .'</h1>
                 </div>
                 ';
                 ?>
