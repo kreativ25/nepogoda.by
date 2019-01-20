@@ -37,6 +37,30 @@
         $nepogoda = json_decode($api, true);
         $nepogoda_count = count($nepogoda['list']); //количество элементов в массиве API для цикла
 
+        //**********************НАЧАЛО ---ДОП подключение---**************************************************
+        if ($nepogoda_count == ""){
+            for ($r = 0; $r < 10; $r++){
+
+                sleep(8);
+
+                $link = 'http://api.openweathermap.org/data/2.5/forecast?id=' . $gorod_id_bd . '&appid=' . API_KEY . '&units=metric';
+                $url = trim($link);
+                $api = file_get_contents($url);
+                $nepogoda = json_decode($api, true);
+                $nepogoda_count = count($nepogoda['list']); //количество элементов в массиве API для цикла
+
+                $r = (int)$r + 1;
+
+                if ($nepogoda_count == ""){
+                    continue;
+                }else{
+                    break;
+                }
+            }
+        }
+
+        //**********************КОНЕЦ ---ДОП подключение---**************************************************
+
         //Записываем полученные данные в БД
         for($i = 0; $i < $nepogoda_count; $i++){
 

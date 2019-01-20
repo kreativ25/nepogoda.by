@@ -319,7 +319,7 @@
                         <tr style="background-color:   #f1b0b7">
                             <td class="text-center"> ночь </td>
                             <td class="text-center">' . $gorod_id_print . '</td>
-                            <td> <img src=' . $linck . ' alt="Условия погоды"> </td>
+                            <td> <img src=' . $linck . ' alt="Условия погоды" title="nepogoda.by"> </td>
                             <td>' . $gorod_id[$i]["usloviya"] . '</td>
                             <td >' . $gorod_id[$i]["skorost_vetra"] . '</td>
                             <td >' . $gorod_id[$i]["vlazhnost"] . '</td>
@@ -330,7 +330,7 @@
                         <tr>
                             <td class="text-center"> ночь </td>
                             <td class="text-center">' . $gorod_id_print . '</td>
-                            <td> <img src=' . $linck . ' alt="Условия погоды"> </td>
+                            <td> <img src=' . $linck . ' alt="Условия погоды" title="nepogoda.by"> </td>
                             <td>' . $gorod_id[$i]["usloviya"] . '</td>
                             <td >' . $gorod_id[$i]["skorost_vetra"] . '</td>
                             <td >' . $gorod_id[$i]["vlazhnost"] . '</td>
@@ -349,7 +349,7 @@
                         <tr style="background-color: #f1b0b7">
                             <td class="text-center"> утро </td>
                             <td class="text-center">' . $gorod_id_print . '</td>
-                            <td> <img src=' . $linck . ' alt="Условия погоды"> </td>
+                            <td> <img src=' . $linck . ' alt="Условия погоды" title="nepogoda.by"> </td>
                             <td>' . $gorod_id[$i]["usloviya"] . '</td>
                             <td >' . $gorod_id[$i]["skorost_vetra"] . '</td>
                             <td >' . $gorod_id[$i]["vlazhnost"] . '</td>
@@ -360,7 +360,7 @@
                         <tr>
                             <td class="text-center"> утро </td>
                             <td class="text-center">' . $gorod_id_print . '</td>
-                            <td> <img src=' . $linck . ' alt="Условия погоды"> </td>
+                            <td> <img src=' . $linck . ' alt="Условия погоды" title="nepogoda.by"> </td>
                             <td>' . $gorod_id[$i]["usloviya"] . '</td>
                             <td >' . $gorod_id[$i]["skorost_vetra"] . '</td>
                             <td >' . $gorod_id[$i]["vlazhnost"] . '</td>
@@ -379,7 +379,7 @@
                         <tr style="background-color: #f1b0b7">
                             <td class="text-center"> день </td>
                             <td class="text-center">' . $gorod_id_print . '</td>
-                            <td> <img src=' . $linck . ' alt="Условия погоды"> </td>
+                            <td> <img src=' . $linck . ' alt="Условия погоды" title="nepogoda.by"> </td>
                             <td>' . $gorod_id[$i]["usloviya"] . '</td>
                             <td >' . $gorod_id[$i]["skorost_vetra"] . '</td>
                             <td >' . $gorod_id[$i]["vlazhnost"] . '</td>
@@ -390,7 +390,7 @@
                         <tr>
                             <td class="text-center"> день </td>
                             <td class="text-center">' . $gorod_id_print . '</td>
-                            <td> <img src=' . $linck . ' alt="Условия погоды"> </td>
+                            <td> <img src=' . $linck . ' alt="Условия погоды" title="nepogoda.by"> </td>
                             <td>' . $gorod_id[$i]["usloviya"] . '</td>
                             <td >' . $gorod_id[$i]["skorost_vetra"] . '</td>
                             <td >' . $gorod_id[$i]["vlazhnost"] . '</td>
@@ -409,7 +409,7 @@
                         <tr style="background-color: #f1b0b7">
                             <td class="text-center"> вечер </td>
                             <td class="text-center">' . $gorod_id_print . '</td>
-                            <td> <img src=' . $linck . ' alt="Условия погоды"> </td>
+                            <td> <img src=' . $linck . ' alt="Условия погоды" title="nepogoda.by"> </td>
                             <td>' . $gorod_id[$i]["usloviya"] . '</td>
                             <td >' . $gorod_id[$i]["skorost_vetra"] . '</td>
                             <td >' . $gorod_id[$i]["vlazhnost"] . '</td>
@@ -420,7 +420,7 @@
                         <tr>
                             <td class="text-center"> вечер </td>
                             <td class="text-center">' . $gorod_id_print . '</td>
-                            <td> <img src=' . $linck . ' alt="Условия погоды"> </td>
+                            <td> <img src=' . $linck . ' alt="Условия погоды" title="nepogoda.by"> </td>
                             <td>' . $gorod_id[$i]["usloviya"] . '</td>
                             <td >' . $gorod_id[$i]["skorost_vetra"] . '</td>
                             <td >' . $gorod_id[$i]["vlazhnost"] . '</td>
